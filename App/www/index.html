@@ -20,14 +20,10 @@
         </div>
 
         <div data-role="content">
-            <h3 style="text-align:center;">Ju ndodheni në:</h3> <br />
-
-            <h2 id="city" style="text-align: center; margin-top: -5px; color: #967adc;"></h2>
-
-
-            <h3 style="text-align:center;">Destinacioni juaj per sot?</h3>
-            <a href="#search" data-transition="slide" data-role="button" id="Gostivar">Gostivar</a>
-            <a href="#search" data-role="button" id="Tetov">Tetovë</a>
+           
+            <h3 style="text-align:center;">Zgjidhni destinacionin tuaj?</h3>
+            <a href="#Gostivar" data-transition="slide" data-role="button" id="Gostivari">Gostivar</a>
+			<a href="#Tetov" data-transition="slide" data-role="button" id="Tetova">Tetovë</a>
         </div>
 
         <div data-role="footer" data-position="fixed" style="height:56px;">
@@ -42,7 +38,7 @@
 
     </div>
 
-    <div data-role="page" id="search" onload="loadSchedule();">
+    <div data-role="page" id="Gostivar">
         <div data-role="header" style="padding-top: 20px;">
             <p align="center">My Buss Schedule</p>
             <a href="#home" data-transition="pop" class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-home ui-btn-icon-notext ui-shadow" style="margin-top:25px"></a>
@@ -50,7 +46,7 @@
 
         <div data-role="content">
             
-            <table data-role="table" data-mode="" class="ui-shadow table-stripe ui-responsive" id="my-table">
+            <table data-role="table" data-mode="" class="ui-shadow table-stripe ui-responsive" id="tableGostivari">
                 <thead>
                     <tr>
                         <th>Agjencioni</th>
@@ -59,7 +55,49 @@
 
                     </tr>
                 </thead>
-                <tbody id="tableb">
+                <tbody id="tableGV">
+                    <tr>
+                        <td id="agency"></td>
+                        <td id="agencyTime"></td>
+                        <td id="timeLeft"></td>
+
+                    </tr>
+                </tbody>
+            </table>    
+
+
+
+        </div>
+		<div data-role="footer" data-position="fixed" style="height:56px;">
+            <div data-role="navbar" data-iconpos="top">
+                <ul>
+                    <li><a href="#" data-icon="gear">Preferencat</a></li>
+                    <li><a href="#" data-icon="grid">Ballina</a></li>
+                    <li><a href="#" data-icon="star">Oraret</a></li>
+
+                </ul>
+            </div>
+        </div>
+
+    </div>
+		<div data-role="page" id="Tetov">
+        <div data-role="header" style="padding-top: 20px;">
+            <p align="center">My Buss Schedule</p>
+            <a href="#home" data-transition="pop" class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-home ui-btn-icon-notext ui-shadow" style="margin-top:25px"></a>
+        </div>
+
+        <div data-role="content">
+            
+            <table data-role="table" data-mode="" class="ui-shadow table-stripe ui-responsive" id="tableTetova">
+                <thead>
+                    <tr>
+                        <th>Agjencioni</th>
+                        <th style="text-align: center;">Koha</th>
+                        <th style="text-align: right;">Koha e Mbetur</th>
+
+                    </tr>
+                </thead>
+                <tbody id="tableTE">
                     <tr>
                         <td id="agency"></td>
                         <td id="agencyTime"></td>
@@ -89,30 +127,104 @@
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script> -->
     <script type="text/javascript">
+	
         app.initialize();
         var date = new Date();
         var IdoToursGV = ["06:20", "07:10", "08:10", "09:40", "11:10", "12:45", "13:45", "15:10", "16:20", "17:55", "19:40"];
-        var exists = false;
-        var table = document.getElementById("tableb");
+		var IdoToursTE = ["06:30", "07:30", "08:30", "09:30", "11:10", "12:45", "13:45", "15:10", "16:20", "17:55", "19:40"];
+        
+        var table = document.getElementById("tableGV");
+		var table2 = document.getElementById("tableTE");
+		
+		var hours = date.getHours();
+		var minutes = date.getMinutes();
+		var time = hours + ":" + minutes;
+		var times = "05:00";
         
 
-        $("#home").on("pageshow", function () {
+		function calculateTime(a, b)
+        {
 
-            if (exists=true)
-            {
-                //for (var i = 0; i < table.childNodes.length; i++)
-                //{
-                //    table.deleteRow(i)
-                //}
-                table.innerHTML = "";
-            }
+            var startTimeArray = a.split(":");
+            var startInputHrs = parseInt(startTimeArray[0]);
+            var startInputMins = parseInt(startTimeArray[1]);
+
+            var endTimeArray = b.split(":");
+            var endInputHrs = parseInt(endTimeArray[0]);
+            var endInputMins = parseInt(endTimeArray[1]);
+
+            var resultFirst;
+            var result;
+
+            resultFirst = ((startInputHrs * 60) + startInputMins) - ((endInputHrs * 60) + endInputMins);
+
+            var hours = (Math.floor(Math.abs(resultFirst) / 60));
+            var minutes = (Math.abs(resultFirst) % 60);
            
+           
+           
+            return result = hours + " h " + " : " + minutes + " m ";
+           
+        }
+		
+		 $("#Gostivar").on("pageshow", function () {
 
+		 for (var i = IdoToursGV.length; i > 0; i--)
+                {
+                    if (times < IdoToursGV[i])
+                    {
+                        var row = table.insertRow(IdoToursGV[i]);
+                        var cell1 = row.insertCell(0);
+                        var cell2 = row.insertCell(1);
+                        var cell3 = row.insertCell(2);
+
+
+                        cell1.innerHTML = "Ido Tours";
+                        cell1.setAttribute("align", "left");
+                        cell2.innerHTML = IdoToursGV[i];
+                        cell2.setAttribute("align", "center");
+                        cell3.innerHTML = calculateTime(IdoToursGV[i], times);
+                        cell3.setAttribute("align", "right");
+                    }
+                   
+                }
+
+                $("#tableGostivari").trigger("create");
+                $("#tableGostivari").table("refresh");
+            
         });
+	
+		$("#Tetov").on("pageshow", function () {
+			
+                for (var i = IdoToursTE.length; i > 0; i--)
+                {
+                    if (times < IdoToursTE[i])
+                    {
+                        var row = table2.insertRow(IdoToursTE[i]);
+                        var cell1 = row.insertCell(0);
+                        var cell2 = row.insertCell(1);
+                        var cell3 = row.insertCell(2);
 
 
+                        cell1.innerHTML = "Ido Tours";
+                        cell1.setAttribute("align", "left");
+                        cell2.innerHTML = IdoToursTE[i];
+                        cell2.setAttribute("align", "center");
+                        cell3.innerHTML = calculateTime(IdoToursTE[i], times);
+                        cell3.setAttribute("align", "right");
+                    }
+                   
+                }
+
+
+                $("#tableTetova").trigger("create");
+                $("#tableTetova").table2("refresh");
+            
+        });
+		
+	/*
         function displayLocation(latitude, longitude) {
             var request = new XMLHttpRequest();
             var address;
@@ -241,7 +353,7 @@
 
             
         });
-
+*/
       
 
         
