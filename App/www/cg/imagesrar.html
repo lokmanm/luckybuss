@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Nje shembull me Three JS</title>
+
+</head>
+
+<body onload="run()" style="background-color: black; overflow: hidden; ">
+
+<div id="container" style="width: 800px; height: 600px; background-color: #000000; border: 1px solid white; float: left; cursor: none;">
+
+</div>
+
+<div id="scoreResults" style=" position: relative; width: 400px; padding-left: 20px; padding-right: 120px; margin-right: 300px; float: right;">
+
+<h1 style="color: white;">Score</h1>  <h1 style="color: red;" id="score">0</h1> <br />
+
+   <h1 style="color: red;" id="level">Level 1</h1>
+
+</div>
+
+
+    <script src="lib/three.min.js"></script>
+
+
+
+    <script type="text/javascript">
+
+
+
+        var canvasWidth = 800;
+        var canvasHeight = 600;
+        var enemies = [];
+        var enemySpeed = 3;
+        var mouse = new THREE.Vector2();
+        var sphereRadius = 10;
+        var enemyRangeX = 800;
+        var enemyRangeY = 600;
+        var gemRange = 550;
+        var nCircles = 30;
+        var audio = document.createElement('audio');
+        var source = document.createElement('source');
+        var gameover = document.createElement('audio');
+        var gameoversrc = document.createElement('source');
+        var applause = document.createElement('audio');
+        var applausesrc = document.createElement('source');
+        var scoreDiv = document.getElementById("score");
+        var bestScoreDiv = document.getElementById("bestScore");
+        var level = document.getElementById("level");
+        var play = true;
+
+        function init() {
+
+
+
+
+
+
+            renderer = new THREE.WebGLRenderer({ antialias: true });
+
+
+            renderer.gammaInput = true;
+            renderer.gammaOutput = true;
+            renderer.setSize(canvasWidth, canvasHeight);
+            renderer.setClearColorHex(0x0, 1.0);
+
+
+            camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 1000);
+            camera.position.z = 400;
+
+            scene = new THREE.Scene();
+
+            var geometry = new THREE.SphereGeometry(20, 12, 12);
+
+            var asteroidtexture = THREE.ImageUtils.loadTexture('textures/asteroid.jpg');
+            asteroidtexture.anisotropy = renderer.getMaxAnisotropy();
+
+            var asteroidmaterial = new THREE.MeshBasicMaterial({ map: asteroidtexture });
+
+            var radius = 1000;
+           
+
+            for (var i = 0; i < nCircles; i++) {
+                mesh = new THREE.Mesh(geometry, asteroidmaterial);
+                scene.add(mesh);
+                mesh.position.set(radius / 2 - radius * Math.random(),
+                    radius / 2 - radius * Math.random(),
+                    0.0);
+                enemies.push(mesh);
+            }
+
+            // sky
+            var sky = new THREE.PlaneGeometry(1200, 800);
+
+            var skyTex = new THREE.ImageUtils.loadTexture("textures/galaxy.jpg");
+            skyTex.anisotropy = renderer.getMaxAnisotropy();
+            
+            var skyMaterial = new THREE.MeshBasicMaterial({ map: skyTex });
+
+            var sky = new THREE.Mesh(sky, skyMaterial);
+
+            scene.add(sky);
+
+
+            // gem
+
+            var gemTex = new THREE.ImageUtils.loadTexture("textures/nexus.jpg");
+            gemTex.anisotropy = renderer.getMaxAnisotropy();
+
+            var gemMaterial = new THREE.MeshBasicMaterial({ map: gemTex });
+
+            gem = new THREE.Mesh(geometry, gemMaterial);
+            gem.position.set(gemRange / 2 - gemRange * Math.random(),
+                              gemRange / 2 - gemRange * Math.random(),
+                              0.0);
+            scene.add(gem);
+
+            // player
+
+            var playerTex = new THREE.ImageUtils.loadTexture("textures/worldmap.jpg");
+            playerTex.anisotropy = renderer.getMaxAnisotropy();
+
+            var playerMaterial = new THREE.MeshBasicMaterial({ map: playerTex });
+
+            player = new THREE.Mesh(geometry, playerMaterial);
+            scene.add(player);
+
+            container.addEventListener('mousemove', onMouseMove, false);
+
+        }
+
+        function PlayOn() {
+            
+           
+
+        }
+
+        function onMouseMove(event) {
+
+            mouse.x = ((event.clientX - container.offsetLeft) / container.clientWidth) * 2 - 1;
+            mouse.y = -((event.clientY - container.offsetTop) / container.clientHeight) * 2 + 1;
+
+            player.position.set(600 * mouse.x, 600 * mouse.y, 0.0);
+
+        }
+
+
+        function addToDOM() {
+
+            var container = document.getElementById('container');
+
+            container.appendChild(renderer.domElement);
+        }
+
+        function animate() {
+
+        
+
+            source.src = 'sound.mp3';
+            audio.appendChild(source);
+
+            gameoversrc.src = 'lost.mp3';
+            gameover.appendChild(gameoversrc);
+
+            applausesrc.src = 'applause.mp3';
+            applause.appendChild(applausesrc);
+
+         
+          
+                requestAnimationFrame(animate);
+                // update enemies
+                for (var i = 0; i < enemies.length; i++) {
+                    if (enemies[i].position.y < -enemyRangeY / 2) {
+                        enemies[i].position.x = enemyRangeX / 2 - enemyRangeX * Math.random();
+                        enemies[i].position.y = enemyRangeY / 2;
+                    } else {
+                        if (enemies[i].position.distanceTo(player.position) < 2 * sphereRadius) { // Humben
+                            scoreDiv.innerHTML = "0"; //reset score
+                            gameover.play();
+                            enemySpeed = 3;
+                            nCircles = 30;
+                            level.innerHTML = "Level 1";
+                        }
+                        enemies[i].position.y -= enemySpeed;
+                    }
+                }
+
+                // Kur takohen
+                if (player.position.distanceTo(gem.position) < 2 * sphereRadius) {
+                    gem.position.x = gemRange / 2 - gemRange * Math.random();
+                    gem.position.y = gemRange / 2 - gemRange * Math.random();
+                    audio.play();
+
+                    var score = Number(scoreDiv.innerHTML) + 1; // Rrite Score
+
+                    switch (score) {
+                        case 5:
+                            level.innerHTML = "Level 2";
+                            enemySpeed = 4;
+                            applause.play();
+                            break;
+                        case 10:
+                            level.innerHTML = "Level 3";
+                            enemySpeed = 6;
+                            applause.play();
+                            break;
+                        case 15:
+                            level.innerHTML = "Level 4 - Mejr i kie punët";
+                            enemySpeed = 8;
+                            nCircles = 35;
+                            applause.play();
+                            break;
+                        case 20:
+                            level.innerHTML = "Level 5 - Huhuu prejshu vllaj jon";
+                            enemySpeed = 12;
+                            nCircles = 40;
+                            applause.play();
+                            break;
+                        case 25:
+                            level.innerHTML = "Level 5 - Je zajeb shum kec";
+                            enemySpeed = 15;
+                            nCircles = 45;
+                            applause.play();
+                            break;
+                    }
+
+                    scoreDiv.innerHTML = score.toString();
+
+                }
+            
+
+            renderer.render(scene, camera);
+      }
+
+
+        function run() {
+            init();
+            addToDOM();
+            animate();
+
+        }
+    </script>
+
+
+</body>
+</html>
