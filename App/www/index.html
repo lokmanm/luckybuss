@@ -63,11 +63,9 @@
 
                     </tr>
                 </tbody>
-            </table>    
-
-
-
+            </table>
         </div>
+
 		<div data-role="footer" data-position="fixed" style="height:56px;">
             <div data-role="navbar" data-iconpos="top">
                 <ul>
@@ -78,9 +76,9 @@
                 </ul>
             </div>
         </div>
-
     </div>
-		<div data-role="page" id="Tetov">
+
+    <div data-role="page" id="Tetov">
         <div data-role="header" style="padding-top: 20px;">
             <p align="center">My Buss Schedule</p>
             <a href="#home" data-transition="pop" class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-home ui-btn-icon-notext ui-shadow" style="margin-top:25px"></a>
@@ -94,7 +92,6 @@
                         <th>Agjencioni</th>
                         <th style="text-align: center;">Koha</th>
                         <th style="text-align: right;">Koha e Mbetur</th>
-
                     </tr>
                 </thead>
                 <tbody id="tableTE">
@@ -102,13 +99,9 @@
                         <td id="agency"></td>
                         <td id="agencyTime"></td>
                         <td id="timeLeft"></td>
-
                     </tr>
                 </tbody>
-            </table>    
-
-
-
+            </table>
         </div>
 
         <div data-role="footer" data-position="fixed" style="height:56px;">
@@ -121,7 +114,6 @@
                 </ul>
             </div>
         </div>
-
     </div>
 
 
@@ -142,7 +134,8 @@
 		var minutes = date.getMinutes();
 		var time = hours + ":" + minutes;
 		var times = "05:00";
-        
+        var existsGV;
+        var existsTE;
 
 		function calculateTime(a, b)
         {
@@ -171,6 +164,11 @@
 		
 		 $("#Gostivar").on("pageshow", function () {
 
+             if (existsGV==true)
+             {
+                 table.innerHTML = "";
+             }
+
 		 for (var i = IdoToursGV.length; i > 0; i--)
                 {
                     if (times < IdoToursGV[i])
@@ -187,6 +185,7 @@
                         cell2.setAttribute("align", "center");
                         cell3.innerHTML = calculateTime(IdoToursGV[i], times);
                         cell3.setAttribute("align", "right");
+                        existsGV = true;
                     }
                    
                 }
@@ -197,6 +196,12 @@
         });
 	
 		$("#Tetov").on("pageshow", function () {
+
+            if (existsTE==true)
+            {
+                table2.innerHTML = "";
+            }
+
 			
                 for (var i = IdoToursTE.length; i > 0; i--)
                 {
@@ -214,13 +219,16 @@
                         cell2.setAttribute("align", "center");
                         cell3.innerHTML = calculateTime(IdoToursTE[i], times);
                         cell3.setAttribute("align", "right");
+                        existsTE = true;
                     }
+
+
                    
                 }
 
 
                 $("#tableTetova").trigger("create");
-                $("#tableTetova").table2("refresh");
+                $("#tableTetova").table("refresh");
             
         });
 		
