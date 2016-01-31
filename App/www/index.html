@@ -133,6 +133,7 @@
 		var hours = date.getHours();
 		var minutes = date.getMinutes();
 		var time = hours + ":" + minutes;
+		//var times = "20:30";
         var existsGV;
         var existsTE;
 
@@ -167,9 +168,10 @@
              {
                  table.innerHTML = "";
              }
-
+			var autobusaGV = 0;
 		 for (var i = IdoToursGV.length; i > 0; i--)
                 {
+					
                     if (time < IdoToursGV[i])
                     {
                         var row = table.insertRow(IdoToursGV[i]);
@@ -185,10 +187,27 @@
                         cell3.innerHTML = calculateTime(IdoToursGV[i], time);
                         cell3.setAttribute("align", "right");
                         existsGV = true;
+						autobusaGV++;
                     }
+					
                    
                 }
-
+					if (autobusaGV == 0)
+					{
+						var row = table.insertRow(1);
+                        var cell1 = row.insertCell(0);
+                        var cell2 = row.insertCell(1);
+                        var cell3 = row.insertCell(2);
+						
+						cell1.innerHTML = "Ido Tours";
+                        cell1.setAttribute("align", "left");
+                        cell2.innerHTML = "Nuk ka autobus tjetër për sot.";
+                        cell2.setAttribute("align", "center");
+						cell3.innerHTML = "";
+                        cell3.setAttribute("align", "right");
+						existsGV = true;
+					}
+					
                 $("#tableGostivari").trigger("create");
                 $("#tableGostivari").table("refresh");
             
