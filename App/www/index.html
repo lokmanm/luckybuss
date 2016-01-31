@@ -133,7 +133,6 @@
 		var hours = date.getHours();
 		var minutes = date.getMinutes();
 		var time = hours + ":" + minutes;
-		var times = "05:00";
         var existsGV;
         var existsTE;
 
@@ -171,7 +170,7 @@
 
 		 for (var i = IdoToursGV.length; i > 0; i--)
                 {
-                    if (times < IdoToursGV[i])
+                    if (time < IdoToursGV[i])
                     {
                         var row = table.insertRow(IdoToursGV[i]);
                         var cell1 = row.insertCell(0);
@@ -183,7 +182,7 @@
                         cell1.setAttribute("align", "left");
                         cell2.innerHTML = IdoToursGV[i];
                         cell2.setAttribute("align", "center");
-                        cell3.innerHTML = calculateTime(IdoToursGV[i], times);
+                        cell3.innerHTML = calculateTime(IdoToursGV[i], time);
                         cell3.setAttribute("align", "right");
                         existsGV = true;
                     }
@@ -205,7 +204,7 @@
 			
                 for (var i = IdoToursTE.length; i > 0; i--)
                 {
-                    if (times < IdoToursTE[i])
+                    if (time < IdoToursTE[i])
                     {
                         var row = table2.insertRow(IdoToursTE[i]);
                         var cell1 = row.insertCell(0);
@@ -217,7 +216,7 @@
                         cell1.setAttribute("align", "left");
                         cell2.innerHTML = IdoToursTE[i];
                         cell2.setAttribute("align", "center");
-                        cell3.innerHTML = calculateTime(IdoToursTE[i], times);
+                        cell3.innerHTML = calculateTime(IdoToursTE[i], time);
                         cell3.setAttribute("align", "right");
                         existsTE = true;
                     }
