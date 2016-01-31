@@ -31,7 +31,7 @@
                 <ul>
                     <li><a href="#" data-icon="gear">Preferencat</a></li>
                     <li><a href="#" data-icon="grid">Ballina</a></li>
-                    <li><a href="#" data-icon="star">Oraret</a></li>
+                    <li><a href="#OrariAll" data-icon="star">Oraret</a></li>
                 </ul>
             </div>
         </div>
@@ -71,7 +71,7 @@
                 <ul>
                     <li><a href="#" data-icon="gear">Preferencat</a></li>
                     <li><a href="#" data-icon="grid">Ballina</a></li>
-                    <li><a href="#" data-icon="star">Oraret</a></li>
+                    <li><a href="#OrariAll" data-icon="star">Oraret</a></li>
 
                 </ul>
             </div>
@@ -109,7 +109,45 @@
                 <ul>
                     <li><a href="#" data-icon="gear">Preferencat</a></li>
                     <li><a href="#" data-icon="grid">Ballina</a></li>
-                    <li><a href="#" data-icon="star">Oraret</a></li>
+                    <li><a href="#OrariAll" data-icon="star">Oraret</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+	
+	<div data-role="page" id="OrariAll">
+        <div data-role="header" style="padding-top: 20px;">
+            <p align="center">Orari i autobusave për Gostivar dhe Tetovë</p>
+            <a href="#home" data-transition="pop" class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-home ui-btn-icon-notext ui-shadow" style="margin-top:25px"></a>
+        </div>
+
+        <div data-role="content">
+            
+            <table data-role="table" data-mode="" class="ui-shadow table-stripe ui-responsive" id="tableAllorari">
+                <thead>
+                    <tr>
+                        <th>Agjencioni</th>
+                        <th style="text-align: center;">Koha</th>
+                        <th style="text-align: right;">Destinacioni</th>						
+                    </tr>
+                </thead>
+                <tbody id="tableAll">
+                    <tr>
+                        <td id="agency"></td>
+                        <td id="agencyTime"></td>
+						<td id="agencyDirection"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div data-role="footer" data-position="fixed" style="height:56px;">
+            <div data-role="navbar" data-iconpos="top">
+                <ul>
+                    <li><a href="#" data-icon="gear">Preferencat</a></li>
+                    <li><a href="#" data-icon="grid">Ballina</a></li>
+                    <li><a href="#OrariAll" data-icon="star">Oraret</a></li>
 
                 </ul>
             </div>
@@ -129,6 +167,7 @@
         
         var table = document.getElementById("tableGV");
 		var table2 = document.getElementById("tableTE");
+		var table3 = document.getElementById("tableAll");
 		
 		var hours = date.getHours();
 		var minutes = date.getMinutes();
@@ -136,6 +175,7 @@
 		//var times = "20:30";
         var existsGV;
         var existsTE;
+		var existsAll;
 
 		function calculateTime(a, b)
         {
@@ -155,9 +195,7 @@
 
             var hours = (Math.floor(Math.abs(resultFirst) / 60));
             var minutes = (Math.abs(resultFirst) % 60);
-           
-           
-           
+                      
             return result = hours + " h " + " : " + minutes + " m ";
            
         }
@@ -189,8 +227,7 @@
                         existsGV = true;
 						autobusaGV++;
                     }
-					
-                   
+			
                 }
 					if (autobusaGV == 0)
 					{
@@ -261,6 +298,70 @@
 
                 $("#tableTetova").trigger("create");
                 $("#tableTetova").table("refresh");
+            
+        });
+		
+		$("#OrariAll").on("pageshow", function () {
+
+            if (existsAll==true)
+            {
+                table3.innerHTML = "";
+            }
+
+			var j = IdoToursTE.length-1;
+			var k = IdoToursGV.length-1;
+			
+                for ( var i = j; i >= 0; i--)
+                {
+                        var row = table3.insertRow(IdoToursTE[i]);
+                        var cell1 = row.insertCell(0);
+                        var cell2 = row.insertCell(1);
+                        var cell3 = row.insertCell(2);
+
+
+                        cell1.innerHTML = "Ido Tours";
+                        cell1.setAttribute("align", "left");
+                        cell2.innerHTML = IdoToursTE[i];
+                        cell2.setAttribute("align", "center");
+                        cell3.innerHTML = "Gostivar";
+                        cell3.setAttribute("align", "right");
+                        existsAll = true;
+					
+					if (i==0){
+					
+						var row = table3.insertRow(IdoToursTE[i]);
+                        var cell1 = row.insertCell(0);
+                        var cell2 = row.insertCell(1);
+                        var cell3 = row.insertCell(2);
+						
+						cell1.innerHTML = "-";
+                        cell1.setAttribute("align", "left");
+                        cell2.innerHTML = "";
+                        cell2.setAttribute("align", "center");
+                        cell3.innerHTML = "";
+                        cell3.setAttribute("align", "right");
+					}
+                }
+				
+				for ( var i = k; i >= 0; i--)
+                {
+                        var row = table3.insertRow(IdoToursGV[i]);
+                        var cell1 = row.insertCell(0);
+                        var cell2 = row.insertCell(1);
+                        var cell3 = row.insertCell(2);
+
+
+                        cell1.innerHTML = "Ido Tours";
+                        cell1.setAttribute("align", "left");
+                        cell2.innerHTML = IdoToursGV[i];
+                        cell2.setAttribute("align", "center");
+                        cell3.innerHTML = "Tetovë";
+                        cell3.setAttribute("align", "right");
+                        existsAll = true;
+                }
+				
+                $("#tableAllorari").trigger("create");
+                $("#tableAllorari").table("refresh");
             
         });
         
