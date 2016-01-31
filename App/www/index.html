@@ -30,7 +30,7 @@
             <div data-role="navbar" data-iconpos="top">
                 <ul>
                     <li><a href="#" data-icon="gear">Preferencat</a></li>
-                    <li><a href="#" data-icon="grid">Ballina</a></li>
+                    <li><a href="#home" data-icon="grid">Ballina</a></li>
                     <li><a href="#OrariAll" data-icon="star">Oraret</a></li>
                 </ul>
             </div>
@@ -70,7 +70,7 @@
             <div data-role="navbar" data-iconpos="top">
                 <ul>
                     <li><a href="#" data-icon="gear">Preferencat</a></li>
-                    <li><a href="#" data-icon="grid">Ballina</a></li>
+                    <li><a href="#home" data-icon="grid">Ballina</a></li>
                     <li><a href="#OrariAll" data-icon="star">Oraret</a></li>
 
                 </ul>
@@ -108,7 +108,7 @@
             <div data-role="navbar" data-iconpos="top">
                 <ul>
                     <li><a href="#" data-icon="gear">Preferencat</a></li>
-                    <li><a href="#" data-icon="grid">Ballina</a></li>
+                    <li><a href="#home" data-icon="grid">Ballina</a></li>
                     <li><a href="#OrariAll" data-icon="star">Oraret</a></li>
 
                 </ul>
@@ -116,7 +116,36 @@
         </div>
     </div>
 	
+	
+	
 	<div data-role="page" id="OrariAll">
+        <div data-role="header" style="padding-top: 20px;">
+            <p align="center">LuckyBuss</p>
+        </div>
+
+        <div data-role="content">
+           
+            <h3 style="text-align:center;">Zgjidhni agjencionin</h3>
+            <a href="#OrariIDO" data-transition="slide" data-role="button" id="Gostivari">Ido Tours</a>
+			<a href="#NasirTours" data-transition="slide" data-role="button" id="Tetova">Nasir Tours</a>
+			<a href="#EuroBus" data-transition="slide" data-role="button" id="Tetova">Euro Bus</a>
+        </div>
+
+        <div data-role="footer" data-position="fixed" style="height:56px;">
+            <div data-role="navbar" data-iconpos="top">
+                <ul>
+                    <li><a href="#" data-icon="gear">Preferencat</a></li>
+                    <li><a href="#home" data-icon="grid">Ballina</a></li>
+                    <li><a href="#OrariAll" data-icon="star">Oraret</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+	
+	
+	
+	<div data-role="page" id="OrariIDO">
         <div data-role="header" style="padding-top: 20px;">
             <p align="center">Orari i autobusave për Gostivar dhe Tetovë</p>
             <a href="#home" data-transition="pop" class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-home ui-btn-icon-notext ui-shadow" style="margin-top:25px"></a>
@@ -146,7 +175,7 @@
             <div data-role="navbar" data-iconpos="top">
                 <ul>
                     <li><a href="#" data-icon="gear">Preferencat</a></li>
-                    <li><a href="#" data-icon="grid">Ballina</a></li>
+                    <li><a href="#home" data-icon="grid">Ballina</a></li>
                     <li><a href="#OrariAll" data-icon="star">Oraret</a></li>
 
                 </ul>
@@ -301,7 +330,7 @@
             
         });
 		
-		$("#OrariAll").on("pageshow", function () {
+		$("#OrariIDO").on("pageshow", function () {
 
             if (existsAll==true)
             {
@@ -323,7 +352,7 @@
                         cell1.setAttribute("align", "left");
                         cell2.innerHTML = IdoToursTE[i];
                         cell2.setAttribute("align", "center");
-                        cell3.innerHTML = "Gostivar";
+                        cell3.innerHTML = "Gostivar - > Tetovë";
                         cell3.setAttribute("align", "right");
                         existsAll = true;
 					
@@ -355,7 +384,7 @@
                         cell1.setAttribute("align", "left");
                         cell2.innerHTML = IdoToursGV[i];
                         cell2.setAttribute("align", "center");
-                        cell3.innerHTML = "Tetovë";
+                        cell3.innerHTML = "Tetovë - > Gostivar";
                         cell3.setAttribute("align", "right");
                         existsAll = true;
                 }
