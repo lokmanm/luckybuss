@@ -220,7 +220,7 @@
                 table2.innerHTML = "";
             }
 
-			
+			var autobusaTE = 0;
                 for (var i = IdoToursTE.length; i > 0; i--)
                 {
                     if (time < IdoToursTE[i])
@@ -238,11 +238,25 @@
                         cell3.innerHTML = calculateTime(IdoToursTE[i], time);
                         cell3.setAttribute("align", "right");
                         existsTE = true;
-                    }
-
-
-                   
+						autobusaTE++;
+                    }                   
                 }
+				
+				if (autobusaTE == 0)
+					{
+						var row = table.insertRow(1);
+                        var cell1 = row.insertCell(0);
+                        var cell2 = row.insertCell(1);
+                        var cell3 = row.insertCell(2);
+						
+						cell1.innerHTML = "Ido Tours";
+                        cell1.setAttribute("align", "left");
+                        cell2.innerHTML = "Nuk ka autobus tjetër për sot.";
+                        cell2.setAttribute("align", "center");
+						cell3.innerHTML = "";
+                        cell3.setAttribute("align", "right");
+						existsTE = true;
+					}
 
 
                 $("#tableTetova").trigger("create");
