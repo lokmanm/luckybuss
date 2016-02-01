@@ -124,6 +124,7 @@
 	<div data-role="page" id="OrariAll">
         <div data-role="header" style="padding-top: 20px;">
             <p align="center">LuckyBuss</p>
+            <a href="#home" data-transition="flip" class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-home ui-btn-icon-notext ui-shadow" style="margin-top:25px"></a>
         </div>
 
         <div data-role="content">
@@ -151,7 +152,7 @@
 	<div data-role="page" id="OrariIDO">
         <div data-role="header" style="padding-top: 20px;">
             <p align="center">Orari për Gostivar dhe Tetovë</p>
-            <a href="#home" data-transition="flip" class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-home ui-btn-icon-notext ui-shadow" style="margin-top:25px"></a>
+            <a href="#OrariAll" data-transition="slide" class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-shadow" style="margin-top:25px"></a>
         </div>
 
         <div data-role="content">
@@ -196,9 +197,6 @@
         var date = new Date();
 		
 		var orari =	{"oraret":{"Ido Tours":{"Gostivar":{"destinacioni":"Tetovë","orari":["06:20","07:10","08:10","09:40","11:10","12:45","13:20","14:30","15:45","17:10","19:00","20:25"]},"Tetovë":{"destinacioni":"Gostivar","orari":["05:45","06:20","07:25","08:50","10:25","11:55","12:30","13:45","15:10","16:20","17:55","19:40"]}},"Nasir Tours":{"Gostivar":{"destinacioni":"Tetovë","orari":["06:20","07:10","08:10","09:40","11:10","12:45","13:20","14:30","15:45","17:10","19:00","20:25"]},"Tetovë":{"destinacioni":"Gostivar","orari":["05:45","06:20","07:25","08:50","10:25","11:55","12:30","13:45","15:10","16:20","17:55","19:40"]}},"Euro Tours":{"Gostivar":{"destinacioni":"Tetovë","orari":["06:20","07:10","08:10","09:40","11:10","12:45","13:20","14:30","15:45","17:10","19:00","20:25"]},"Tetovë":{"destinacioni":"Gostivar","orari":["05:45","06:20","07:25","08:50","10:25","11:55","12:30","13:45","15:10","16:20","17:55","19:40"]}}}};
-		
-        var IdoToursGV = ["06:20", "07:10", "08:10", "09:40", "11:10", "12:45", "13:20", "14:30", "15:45", "17:10", "19:00", "20:25"];
-		var IdoToursTE = ["05:45", "06:20", "07:25", "08:50", "10:25", "11:55", "12:30", "13:45", "15:10", "16:20", "17:55", "19:40"];
 		
 		var agjencioniZgjedhur = "Ido Tours";
 		document.getElementById('agjencioniZgjedhur').innerHTML = agjencioniZgjedhur;
