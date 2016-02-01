@@ -194,6 +194,26 @@
 	
         app.initialize();
         var date = new Date();
+		
+		var orari =	{
+  "oraret" : [
+  {
+  "agjencioni" : "Ido Tours",
+  "nisja" : "Gostivar",
+  "destinacioni" : "Tetovë",
+  "orari" : [
+    "06:20", "07:10", "08:10", "09:40", "11:10", "12:45", "13:20", "14:30", "15:45", "17:10", "19:00", "20:25"
+    ]
+},
+{
+  "agjencioni" : "Ido Tours",
+  "nisja" : "Tetovë",
+  "destinacioni" : "Gostivar",
+  "orari" : [
+    "05:45", "06:20", "07:25", "08:50", "10:25", "11:55", "12:30", "13:45", "15:10", "16:20", "17:55", "19:40"
+    ]
+}]};
+		
         var IdoToursGV = ["06:20", "07:10", "08:10", "09:40", "11:10", "12:45", "13:20", "14:30", "15:45", "17:10", "19:00", "20:25"];
 		var IdoToursTE = ["05:45", "06:20", "07:25", "08:50", "10:25", "11:55", "12:30", "13:45", "15:10", "16:20", "17:55", "19:40"];
 		
@@ -242,12 +262,12 @@
                  table.innerHTML = "";
              }
 			var autobusaGV = 0;
-		 for (var i = IdoToursGV.length; i > 0; i--)
+		 for (var i = orari["oraret"][0]["orari"].length; i > 0; i--)
                 {
 					
-                    if (time < IdoToursGV[i])
+                    if (time < orari["oraret"][0]["orari"][i])
                     {
-                        var row = table.insertRow(IdoToursGV[i]);
+                        var row = table.insertRow(orari["oraret"][0]["orari"][i]);
                         var cell1 = row.insertCell(0);
                         var cell2 = row.insertCell(1);
                         var cell3 = row.insertCell(2);
@@ -255,9 +275,9 @@
 
                         cell1.innerHTML = "Ido Tours";
                         cell1.setAttribute("align", "left");
-                        cell2.innerHTML = IdoToursGV[i];
+                        cell2.innerHTML = orari["oraret"][0]["orari"][i];
                         cell2.setAttribute("align", "center");
-                        cell3.innerHTML = calculateTime(IdoToursGV[i], time);
+                        cell3.innerHTML = calculateTime(orari["oraret"][0]["orari"][i], time);
                         cell3.setAttribute("align", "right");
                         existsGV = true;
 						autobusaGV++;
@@ -344,7 +364,7 @@
             }
 
 			var j = IdoToursTE.length-1;
-			var k = IdoToursGV.length-1;
+			var k = orari["oraret"][0]["orari"].length-1;
 			
                 for ( var i = j; i >= 0; i--)
                 {
@@ -380,7 +400,7 @@
 				
 				for ( var i = k; i >= 0; i--)
                 {
-                        var row = table3.insertRow(IdoToursGV[i]);
+                        var row = table3.insertRow(orari["oraret"][0]["orari"][i]);
                         var cell1 = row.insertCell(0);
                         var cell2 = row.insertCell(1);
                         var cell3 = row.insertCell(2);
@@ -388,7 +408,7 @@
 
                         cell1.innerHTML = "Ido Tours";
                         cell1.setAttribute("align", "left");
-                        cell2.innerHTML = IdoToursGV[i];
+                        cell2.innerHTML = orari["oraret"][0]["orari"][i];
                         cell2.setAttribute("align", "center");
                         cell3.innerHTML = "TE - > GV";
                         cell3.setAttribute("align", "right");
@@ -399,7 +419,6 @@
                 $("#tableAllorari").table("refresh");
             
         });
-        
 
     </script>
 </body>
