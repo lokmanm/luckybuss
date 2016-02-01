@@ -201,9 +201,6 @@
 		var agjencioniZgjedhur = "Ido Tours";
 		document.getElementById('agjencioniZgjedhur').innerHTML = agjencioniZgjedhur;
 		
-        
-		
-		var table3 = document.getElementById("tableAll");
 		
 		var hours = date.getHours();
 		var minutes = date.getMinutes();
@@ -237,7 +234,7 @@
            
         }
 		
-		function tregoOraret (agjencioni,vendi, table, existsCity){
+		function kontrolloOraret (agjencioni,vendi, table, existsCity){
 		
 		var autobusa = 0;
 		var orariFull = orari["oraret"][agjencioni][vendi]["orari"];
@@ -253,7 +250,7 @@
                         var cell3 = row.insertCell(2);
 
 
-                        cell1.innerHTML = "Ido Tours";
+                        cell1.innerHTML = agjencioni;
                         cell1.setAttribute("align", "left");
                         cell2.innerHTML = orariFull[i];
                         cell2.setAttribute("align", "center");
@@ -271,7 +268,7 @@
                         var cell2 = row.insertCell(1);
                         var cell3 = row.insertCell(2);
 						
-						cell1.innerHTML = "Ido Tours";
+						cell1.innerHTML = agjencioni;
                         cell1.setAttribute("align", "left");
                         cell2.innerHTML = "Nuk ka autobus tjetër për sot.";
                         cell2.setAttribute("align", "center");
@@ -280,6 +277,28 @@
 						existsCity = true;
 					}
 		
+		}
+		
+		function tregoOraret (agjencioni, vendi, table, existsCity){
+		
+		var orariFull = orari["oraret"][agjencioni][vendi]["orari"];
+		
+		for (var i = orariFull.length-1; i > 0; i--)
+                {
+                        var row = table.insertRow(orariFull[i]);
+                        var cell1 = row.insertCell(0);
+                        var cell2 = row.insertCell(1);
+                        var cell3 = row.insertCell(2);
+
+
+                        cell1.innerHTML = agjencioni;
+                        cell1.setAttribute("align", "left");
+                        cell2.innerHTML = orariFull[i];
+                        cell2.setAttribute("align", "center");
+                        cell3.innerHTML = vendi;
+                        cell3.setAttribute("align", "right");
+                        existsCity = true;
+                }
 		}
 		
 		$("#Gostivar").on("pageshow", function () {
@@ -295,7 +314,7 @@
 			var agjencioni = agjencioniZgjedhur;
 			var vendi = "Gostivar";
 			
-			tregoOraret (agjencioni,vendi, table, existsCity);
+			kontrolloOraret (agjencioni,vendi, table, existsCity);
 		 					
                 $("#tableGostivari").trigger("create");
                 $("#tableGostivari").table("refresh");
@@ -317,7 +336,7 @@
 			var agjencioni = agjencioniZgjedhur;
 			var vendi = "Tetovë";
 			
-			tregoOraret (agjencioni,vendi, table2, existsCity);
+			kontrolloOraret (agjencioni,vendi, table2, existsCity);
 		 					
                 $("#tableTetova").trigger("create");
                 $("#tableTetova").table("refresh");
@@ -326,58 +345,31 @@
         });
 		
 		
-		$("#Tetovi").on("pageshow", function () {
+		$("#OrariIDO").on("pageshow", function () {
+			
+			$("#tableAllorari td").remove();
 
-            if (existsTE==true)
-            {
-                table2.innerHTML = "";
-            }
-
-			var autobusaTE = 0;
-                for (var i = IdoToursTE.length; i > 0; i--)
-                {
-                    if (time < IdoToursTE[i])
-                    {
-                        var row = table2.insertRow(IdoToursTE[i]);
-                        var cell1 = row.insertCell(0);
-                        var cell2 = row.insertCell(1);
-                        var cell3 = row.insertCell(2);
-
-
-                        cell1.innerHTML = "Ido Tours";
-                        cell1.setAttribute("align", "left");
-                        cell2.innerHTML = IdoToursTE[i];
-                        cell2.setAttribute("align", "center");
-                        cell3.innerHTML = calculateTime(IdoToursTE[i], time);
-                        cell3.setAttribute("align", "right");
-                        existsTE = true;
-						autobusaTE++;
-                    }                   
-                }
-				
-				if (autobusaTE == 0)
-					{
-						var row = table2.insertRow(1);
-                        var cell1 = row.insertCell(0);
-                        var cell2 = row.insertCell(1);
-                        var cell3 = row.insertCell(2);
-						
-						cell1.innerHTML = "Ido Tours";
-                        cell1.setAttribute("align", "left");
-                        cell2.innerHTML = "Nuk ka autobus tjetër për sot.";
-                        cell2.setAttribute("align", "center");
-						cell3.innerHTML = "";
-                        cell3.setAttribute("align", "right");
-						existsTE = true;
-					}
-
-
-                $("#tableTetova").trigger("create");
-                $("#tableTetova").table("refresh");
-            
+			if (existsCity==true)
+             {
+                 table3.innerHTML = "";
+             }
+			 
+			var table3 = document.getElementById("tableAll");
+			var agjencioni = agjencioniZgjedhur;
+			var vendi = "Tetovë";
+			
+			tregoOraret (agjencioni,vendi, table3, existsCity);
+			vendi = "Gostivar";
+			tregoOraret (agjencioni,vendi, table3, existsCity);
+		 					
+                $("#tableAllorari").trigger("create");
+                $("#tableAllorari").table("refresh");
+			existsCity = false;
+			
         });
 		
-		$("#OrariIDO").on("pageshow", function () {
+		
+		$("#OrariIDOA").on("pageshow", function () {
 
             if (existsAll==true)
             {
