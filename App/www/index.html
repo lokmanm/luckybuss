@@ -131,8 +131,8 @@
            
             <h3 style="text-align:center;">Zgjidhni agjencionin</h3>
             <a href="#OrariIDO" data-transition="slide" data-role="button" id="Gostivari">Ido Tours</a>
-			<a href="#NasirTours" data-transition="slide" data-role="button" id="Tetova">Nasir Tours</a>
-			<a href="#EuroBus" data-transition="slide" data-role="button" id="Tetova">Euro Bus</a>
+			<a href="#OrariNASIR" data-transition="slide" data-role="button" id="Tetova">Nasir Tours</a>
+			<a href="#OrariEURO" data-transition="slide" data-role="button" id="Tetova">Euro Bus</a>
         </div>
 
         <div data-role="footer" data-position="fixed" style="height:56px;">
@@ -157,17 +157,52 @@
 
         <div data-role="content">
             
-            <table data-role="table" data-mode="" class="ui-shadow table-stripe ui-responsive" id="tableAllorari">
+            <table data-role="table" data-mode="" class="ui-shadow table-stripe ui-responsive" id="tableIDOorari">
                 <thead>
-                    <tr>
-                        <th>Agjencioni</th>
+                    <tr>                        
                         <th style="text-align: center;">Koha</th>
                         <th style="text-align: right;">Destinacioni</th>						
                     </tr>
                 </thead>
-                <tbody id="tableAll">
+                <tbody id="tableIDO">
                     <tr>
-                        <td id="agency"></td>
+                        <td id="agencyTime"></td>
+						<td id="agencyDirection"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div data-role="footer" data-position="fixed" style="height:56px;">
+            <div data-role="navbar" data-iconpos="top">
+                <ul>
+                    <li><a href="#" data-icon="gear">Preferencat</a></li>
+                    <li><a href="#home" data-icon="grid" data-transition="flip">Ballina</a></li>
+                    <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+	
+	
+	<div data-role="page" id="OrariNASIR">
+        <div data-role="header" style="padding-top: 20px;">
+            <p align="center">Orari për Gostivar dhe Tetovë</p>
+            <a href="#OrariAll" data-transition="slide" class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-shadow" style="margin-top:25px"></a>
+        </div>
+
+        <div data-role="content">
+            
+            <table data-role="table" data-mode="" class="ui-shadow table-stripe ui-responsive" id="tableNASIRorari">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;">Koha</th>
+                        <th style="text-align: right;">Destinacioni</th>						
+                    </tr>
+                </thead>
+                <tbody id="tableNASIR">
+                    <tr>
                         <td id="agencyTime"></td>
 						<td id="agencyDirection"></td>
                     </tr>
@@ -187,7 +222,45 @@
         </div>
     </div>
 
+	
+	<div data-role="page" id="OrariEURO">
+        <div data-role="header" style="padding-top: 20px;">
+            <p align="center">Orari për Gostivar dhe Tetovë</p>
+            <a href="#OrariAll" data-transition="slide" class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-shadow" style="margin-top:25px"></a>
+        </div>
 
+        <div data-role="content">
+            
+            <table data-role="table" data-mode="" class="ui-shadow table-stripe ui-responsive" id="tableEUROorari">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;">Koha</th>
+                        <th style="text-align: right;">Destinacioni</th>						
+                    </tr>
+                </thead>
+                <tbody id="tableEURO">
+                    <tr>
+                        <td id="agencyTime"></td>
+						<td id="agencyDirection"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div data-role="footer" data-position="fixed" style="height:56px;">
+            <div data-role="navbar" data-iconpos="top">
+                <ul>
+                    <li><a href="#" data-icon="gear">Preferencat</a></li>
+                    <li><a href="#home" data-icon="grid" data-transition="flip">Ballina</a></li>
+                    <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+	
+	
+	
    <!-- <script type="text/javascript" src="cordova.js"></script> -->
     <script type="text/javascript" src="js/index.js"></script>
     <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script> -->
@@ -234,7 +307,7 @@
            
         }
 		
-		function kontrolloOraret (agjencioni,vendi, table, existsCity){
+		function kontrolloOraret (agjencioni, vendi, table, existsCity){
 		
 		var autobusa = 0;
 		var orariFull = orari["oraret"][agjencioni][vendi]["orari"];
@@ -288,15 +361,11 @@
                         var row = table.insertRow(orariFull[i]);
                         var cell1 = row.insertCell(0);
                         var cell2 = row.insertCell(1);
-                        var cell3 = row.insertCell(2);
 
-
-                        cell1.innerHTML = agjencioni;
+                        cell1.innerHTML = orariFull[i];
                         cell1.setAttribute("align", "left");
-                        cell2.innerHTML = orariFull[i];
-                        cell2.setAttribute("align", "center");
-                        cell3.innerHTML = vendi;
-                        cell3.setAttribute("align", "right");
+                        cell2.innerHTML = vendi;
+                        cell2.setAttribute("align", "right");
                         existsCity = true;
                 }
 		}
@@ -347,90 +416,72 @@
 		
 		$("#OrariIDO").on("pageshow", function () {
 			
-			$("#tableAllorari td").remove();
+			$("#tableIDOorari td").remove();
 
 			if (existsCity==true)
              {
                  table3.innerHTML = "";
              }
 			 
-			var table3 = document.getElementById("tableAll");
-			var agjencioni = agjencioniZgjedhur;
+			var table3 = document.getElementById("tableIDO");
+			var agjencioni = "Ido Tours";
 			var vendi = "Tetovë";
 			
 			tregoOraret (agjencioni,vendi, table3, existsCity);
 			vendi = "Gostivar";
 			tregoOraret (agjencioni,vendi, table3, existsCity);
 		 					
-                $("#tableAllorari").trigger("create");
-                $("#tableAllorari").table("refresh");
+                $("#tableIDOorari").trigger("create");
+                $("#tableIDOorari").table("refresh");
+			existsCity = false;
+			
+        });
+		
+		$("#OrariNASIR").on("pageshow", function () {
+			
+			$("#tableNASIRorari td").remove();
+
+			if (existsCity==true)
+             {
+                 table4.innerHTML = "";
+             }
+			 
+			var table4 = document.getElementById("tableNASIR");
+			var agjencioni = "Nasir Tours";
+			var vendi = "Tetovë";
+			
+			tregoOraret (agjencioni,vendi, table4, existsCity);
+			vendi = "Gostivar";
+			tregoOraret (agjencioni,vendi, table4, existsCity);
+		 					
+                $("#tableNASIRorari").trigger("create");
+                $("#tableNASIRorari").table("refresh");
 			existsCity = false;
 			
         });
 		
 		
-		$("#OrariIDOA").on("pageshow", function () {
-
-            if (existsAll==true)
-            {
-                table3.innerHTML = "";
-            }
-
-			var j = IdoToursTE.length-1;
-			var k = orari["oraret"][0]["orari"].length-1;
+		$("#OrariEURO").on("pageshow", function () {
 			
-                for ( var i = j; i >= 0; i--)
-                {
-                        var row = table3.insertRow(IdoToursTE[i]);
-                        var cell1 = row.insertCell(0);
-                        var cell2 = row.insertCell(1);
-                        var cell3 = row.insertCell(2);
+			$("#tableEUROorari td").remove();
 
-
-                        cell1.innerHTML = "Ido Tours";
-                        cell1.setAttribute("align", "left");
-                        cell2.innerHTML = IdoToursTE[i];
-                        cell2.setAttribute("align", "center");
-                        cell3.innerHTML = "GV - > TE";
-                        cell3.setAttribute("align", "right");
-                        existsAll = true;
-					
-					if (i==0){
-					
-						var row = table3.insertRow(IdoToursTE[i]);
-                        var cell1 = row.insertCell(0);
-                        var cell2 = row.insertCell(1);
-                        var cell3 = row.insertCell(2);
-						
-						cell1.innerHTML = "-";
-                        cell1.setAttribute("align", "left");
-                        cell2.innerHTML = "";
-                        cell2.setAttribute("align", "center");
-                        cell3.innerHTML = "";
-                        cell3.setAttribute("align", "right");
-					}
-                }
-				
-				for ( var i = k; i >= 0; i--)
-                {
-                        var row = table3.insertRow(orari["oraret"][0]["orari"][i]);
-                        var cell1 = row.insertCell(0);
-                        var cell2 = row.insertCell(1);
-                        var cell3 = row.insertCell(2);
-
-
-                        cell1.innerHTML = "Ido Tours";
-                        cell1.setAttribute("align", "left");
-                        cell2.innerHTML = orari["oraret"][0]["orari"][i];
-                        cell2.setAttribute("align", "center");
-                        cell3.innerHTML = "TE - > GV";
-                        cell3.setAttribute("align", "right");
-                        existsAll = true;
-                }
-				
-                $("#tableAllorari").trigger("create");
-                $("#tableAllorari").table("refresh");
-            
+			if (existsCity==true)
+             {
+                 table5.innerHTML = "";
+             }
+			 
+			var table5 = document.getElementById("tableEURO");
+			var agjencioni = "Euro Tours";
+			var vendi = "Tetovë";
+			
+			tregoOraret (agjencioni,vendi, table5, existsCity);
+			vendi = "Gostivar";
+			tregoOraret (agjencioni,vendi, table5, existsCity);
+		 					
+                $("#tableEUROorari").trigger("create");
+                $("#tableEUROorari").table("refresh");
+			existsCity = false;
+			
         });
 
     </script>
