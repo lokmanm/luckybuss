@@ -151,7 +151,7 @@
 	
 	<div data-role="page" id="OrariIDO">
         <div data-role="header" style="padding-top: 20px;">
-            <p align="center">Orari për Gostivar dhe Tetovë</p>
+            <p align="center">Ido Tours</p>
             <a href="#OrariAll" data-transition="slide" class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-shadow" style="margin-top:25px"></a>
         </div>
 
@@ -160,15 +160,13 @@
             <table data-role="table" data-mode="" class="ui-shadow table-stripe ui-responsive" id="tableIDOorari">
                 <thead>
                     <tr>                        
-                        <th style="text-align: left;">Koha</th>
-                        <th style="text-align: center;">Nisja nga</th>
-						<th style="text-align: left;">Koha</th>
+                        <th style="text-align: left;">Nisja nga Gostivari</th>
+						<th style="text-align: left;">Nisja nga Tetova</th>
                     </tr>
                 </thead>
                 <tbody id="tableIDO">
                     <tr>
                         <td id="koha"></td>
-						<td id="destinacioni"></td>
 						<td id="koha2"></td>
                     </tr>
                 </tbody>
@@ -190,7 +188,7 @@
 	
 	<div data-role="page" id="OrariNASIR">
         <div data-role="header" style="padding-top: 20px;">
-            <p align="center">Orari për Gostivar dhe Tetovë</p>
+            <p align="center">Nasir Tours</p>
             <a href="#OrariAll" data-transition="slide" class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-shadow" style="margin-top:25px"></a>
         </div>
 
@@ -199,14 +197,14 @@
             <table data-role="table" data-mode="" class="ui-shadow table-stripe ui-responsive" id="tableNASIRorari">
                 <thead>
                     <tr>
-                        <th style="text-align: center;">Koha</th>
-                        <th style="text-align: right;">Destinacioni</th>						
+                       <th style="text-align: left;">Nisja nga Gostivari</th>
+						<th style="text-align: left;">Nisja nga Tetova</th>					
                     </tr>
                 </thead>
                 <tbody id="tableNASIR">
                     <tr>
                          <td id="koha"></td>
-						<td id="destinacioni"></td>
+						<td id="koha2"></td>
                     </tr>
                 </tbody>
             </table>
@@ -227,7 +225,7 @@
 	
 	<div data-role="page" id="OrariEURO">
         <div data-role="header" style="padding-top: 20px;">
-            <p align="center">Orari për Gostivar dhe Tetovë</p>
+            <p align="center">Euro Tours</p>
             <a href="#OrariAll" data-transition="slide" class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-shadow" style="margin-top:25px"></a>
         </div>
 
@@ -236,14 +234,14 @@
             <table data-role="table" data-mode="" class="ui-shadow table-stripe ui-responsive" id="tableEUROorari">
                 <thead>
                     <tr>
-                        <th style="text-align: center;">Koha</th>
-                        <th style="text-align: right;">Destinacioni</th>						
+						<th style="text-align: left;">Nisja nga Gostivari</th>
+						<th style="text-align: left;">Nisja nga Tetova</th>						
                     </tr>
                 </thead>
                 <tbody id="tableEURO">
                     <tr>
                          <td id="koha"></td>
-						<td id="destinacioni"></td>
+						<td id="koha2"></td>
                     </tr>
                 </tbody>
             </table>
@@ -281,7 +279,7 @@
 		var hours = date.getHours();
 		var minutes = date.getMinutes();
 		var time = hours + ":" + minutes;
-		//var times = "20:30";
+		//var times = "02:30";
         
 		var existsCity;
         var existsTE;
@@ -369,10 +367,8 @@
 						
                         cell1.innerHTML = orariFull[i];
                         cell1.setAttribute("align", "left");
-                        cell2.innerHTML = "Gostivari - Tetova";
+						cell2.innerHTML = orariFull2[i];
                         cell2.setAttribute("align", "right");
-						cell3.innerHTML = orariFull2[i];
-                        cell3.setAttribute("align", "right");
                         existsCity = true;
                 }
 		}
@@ -458,8 +454,6 @@
 			var vendi = "Tetovë";
 			
 			tregoOraret (agjencioni,vendi, table4, existsCity);
-			vendi = "Gostivar";
-			tregoOraret (agjencioni,vendi, table4, existsCity);
 		 					
                 $("#tableNASIRorari").trigger("create");
                 $("#tableNASIRorari").table("refresh");
@@ -481,8 +475,6 @@
 			var agjencioni = "Euro Tours";
 			var vendi = "Tetovë";
 			
-			tregoOraret (agjencioni,vendi, table5, existsCity);
-			vendi = "Gostivar";
 			tregoOraret (agjencioni,vendi, table5, existsCity);
 		 					
                 $("#tableEUROorari").trigger("create");
