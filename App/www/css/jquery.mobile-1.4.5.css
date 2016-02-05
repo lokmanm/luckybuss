@@ -4305,7 +4305,7 @@ html .ui-popup .ui-field-contain > label + .ui-flipswitch {
 .ui-table th,
 .ui-table td {
 	line-height: 1.5em;
-	text-align: left;
+
 	padding: .4em .5em;
 	vertical-align:top;
 }

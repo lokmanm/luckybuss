@@ -32,7 +32,7 @@
         <div data-role="footer" data-position="fixed" style="height:56px;">
             <div data-role="navbar" data-iconpos="top">
                 <ul>
-                    <li><a href="#" data-icon="gear">Preferencat</a></li>
+                    <li><a href="#Settings" data-icon="gear">Preferencat</a></li>
                     <li><a href="#home" data-icon="grid" data-transition="flip">Ballina</a></li>
                     <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
                 </ul>
@@ -72,7 +72,7 @@
 		<div data-role="footer" data-position="fixed" style="height:56px;">
             <div data-role="navbar" data-iconpos="top">
                 <ul>
-                    <li><a href="#" data-icon="gear">Preferencat</a></li>
+                    <li><a href="#Settings" data-icon="gear">Preferencat</a></li>
                     <li><a href="#home" data-icon="grid" data-transition="flip">Ballina</a></li>
                     <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
 
@@ -110,7 +110,7 @@
         <div data-role="footer" data-position="fixed" style="height:56px;">
             <div data-role="navbar" data-iconpos="top">
                 <ul>
-                    <li><a href="#" data-icon="gear">Preferencat</a></li>
+                    <li><a href="#Settings" data-icon="gear">Preferencat</a></li>
                     <li><a href="#home" data-icon="grid" data-transition="flip">Ballina</a></li>
                     <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
 
@@ -138,7 +138,7 @@
         <div data-role="footer" data-position="fixed" style="height:56px;">
             <div data-role="navbar" data-iconpos="top">
                 <ul>
-                    <li><a href="#" data-icon="gear">Preferencat</a></li>
+                    <li><a href="#Settings" data-icon="gear">Preferencat</a></li>
                     <li><a href="#home" data-icon="grid" data-transition="flip">Ballina</a></li>
                     <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
                 </ul>
@@ -160,8 +160,8 @@
             <table data-role="table" data-mode="" class="ui-shadow table-stripe ui-responsive" id="tableIDOorari">
                 <thead>
                     <tr>                        
-                        <th style="text-align: center;">Koha</th>
-                        <th style="text-align: right;">Destinacioni</th>						
+                        <th>Koha</th>
+                        <th>Destinacioni</th>
                     </tr>
                 </thead>
                 <tbody id="tableIDO">
@@ -176,7 +176,7 @@
         <div data-role="footer" data-position="fixed" style="height:56px;">
             <div data-role="navbar" data-iconpos="top">
                 <ul>
-                    <li><a href="#" data-icon="gear">Preferencat</a></li>
+                    <li><a href="#Settings" data-icon="gear">Preferencat</a></li>
                     <li><a href="#home" data-icon="grid" data-transition="flip">Ballina</a></li>
                     <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
 
@@ -213,7 +213,7 @@
         <div data-role="footer" data-position="fixed" style="height:56px;">
             <div data-role="navbar" data-iconpos="top">
                 <ul>
-                    <li><a href="#" data-icon="gear">Preferencat</a></li>
+                    <li><a href="#Settings" data-icon="gear">Preferencat</a></li>
                     <li><a href="#home" data-icon="grid" data-transition="flip">Ballina</a></li>
                     <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
 
@@ -250,7 +250,43 @@
         <div data-role="footer" data-position="fixed" style="height:56px;">
             <div data-role="navbar" data-iconpos="top">
                 <ul>
-                    <li><a href="#" data-icon="gear">Preferencat</a></li>
+                    <li><a href="#Settings" data-icon="gear">Preferencat</a></li>
+                    <li><a href="#home" data-icon="grid" data-transition="flip">Ballina</a></li>
+                    <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div data-role="page" id="Settings">
+        <div data-role="header" style="padding-top: 20px;">
+            <p align="center">Preferencat</p>
+            <a href="#home" data-transition="slide" class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-shadow" style="margin-top:25px"></a>
+        </div>
+
+        <div data-role="content">
+        <form>
+            <fieldset data-role="controlgroup">
+                <legend>Zgjidhni Agjencionin:</legend>
+                <input type="radio" name="agjencioniZgjedhur" id="idotours" value="idotours">
+                <label for="idotours">Ido Tours</label>
+                <input type="radio" name="agjencioniZgjedhur" id="nasirtours" value="nasirtours">
+                <label for="nasirtours">Nasir Tours</label>
+                <input type="radio" name="agjencioniZgjedhur" id="eurotours" value="eurotours">
+                <label for="eurotours">Euro Tours</label>
+            </fieldset>
+        </form>
+        </div>
+
+
+
+
+        <div data-role="footer" data-position="fixed" style="height:56px;">
+            <div data-role="navbar" data-iconpos="top">
+                <ul>
+                    <li><a href="#Settings" data-icon="gear">Preferencat</a></li>
                     <li><a href="#home" data-icon="grid" data-transition="flip">Ballina</a></li>
                     <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
 
@@ -269,7 +305,7 @@
         app.initialize();
         var date = new Date();
 
-        var orari = {"oraret":{"Ido Tours":{"Gostivar":{"destinacioni":"Tetovë","orari":["06:20","07:10","08:10","09:40","11:10","12:45","13:20","14:30","15:45","17:10","19:00","20:25"]},"Tetovë":{"destinacioni":"Gostivar","orari":["05:45","06:20","07:25","08:50","10:25","11:55","12:30","13:45","15:10","16:20","17:55","19:40"]}},"Nasir Tours":{"Gostivar":{"destinacioni":"Tetovë","orari":["07:20","08:20","08:50","09:20","10:30","10:50","11:50","12:20","13:40","15:20","16:50","18:20"]},"Tetovë":{"destinacioni":"Gostivar","orari":["07:50","09:00","10:10","11:00","11:40","12:40","13:10","14:30","15:25","16:10","17:30","19:20"]}},"Euro Tours":{"Gostivar":{"destinacioni":"Tetovë","orari":["05:15","06:35","07:30","08:30","09:00","10:00","11:30","13:00","14:45","16:00","17:30","19:15"]},"Tetovë":{"destinacioni":"Gostivar","orari":["06:00","07:40","08:10","09:10","09:40","10:40","12:10","14:00","15:30","16:40","18:10","20:00"]}}}};
+        var orari = {"oraret":{"Ido Tours":{"Gostivar":{"destinacioni":"Tetovë","orari":["06:20","07:10","08:10","09:40","11:10","12:45","13:20","14:30","15:45","17:10","19:00","20:25"]},"Tetovë":{"destinacioni":"Gostivar","orari":["05:45","06:20","07:25","08:50","10:25","11:55","12:30","13:45","15:10","16:20","17:55","19:40"]}},"Nasir Tours":{"Gostivar":{"destinacioni":"Tetovë","orari":["07:20","08:20","08:50","09:20","10:30","10:50","11:50","12:20","13:40","15:20","16:50","18:20"]},"Tetovë":{"destinacioni":"Gostivar","orari":["07:50","09:00","10:10","11:00","11:40","12:40","13:10","14:30","15:25","16:10","17:30","19:20"]}},"Euro Tours":{"Gostivar":{"destinacioni":"Tetovë","orari":["06:35","07:30","08:30","09:00","10:00","10:30","11:30","12:00","13:00","14:45","16:00","17:30"]},"Tetovë":{"destinacioni":"Gostivar","orari":["07:40","08:10","09:10","09:40","10:40","12:10","14:00","15:30","16:40","18:10"]}}}};
 		
 		var agjencioniZgjedhur = "Ido Tours";
 		document.getElementById('agjencioniZgjedhur').innerHTML = agjencioniZgjedhur;
@@ -311,12 +347,16 @@
 		
 		var autobusa = 0;
 		var orariFull = orari["oraret"][agjencioni][vendi]["orari"];
+
+
 		
 		for (var i = orariFull.length; i > 0; i--)
                 {
-					
+
                     if (time < orariFull[i])
                     {
+
+
                         var row = table.insertRow(orariFull[i]);
                         var cell1 = row.insertCell(0);
                         var cell2 = row.insertCell(1);
@@ -363,9 +403,9 @@
                         var cell2 = row.insertCell(1);
 
                         cell1.innerHTML = orariFull[i];
-                        cell1.setAttribute("align", "left");
+
                         cell2.innerHTML = vendi;
-                        cell2.setAttribute("align", "right");
+
                         existsCity = true;
                 }
 		}
