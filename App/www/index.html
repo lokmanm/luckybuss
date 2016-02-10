@@ -32,7 +32,7 @@
     <div data-role="footer" data-position="fixed" style="height:56px;">
         <div data-role="navbar" data-iconpos="top">
             <ul>
-                <li><a href="#" data-icon="gear">Preferencat</a></li>
+                <li><a href="#Settings" data-icon="gear" data-transition="slide">Preferencat</a></li>
                 <li><a href="#home" data-icon="grid" data-transition="flip">Ballina</a></li>
                 <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
             </ul>
@@ -72,7 +72,7 @@
     <div data-role="footer" data-position="fixed" style="height:56px;">
         <div data-role="navbar" data-iconpos="top">
             <ul>
-                <li><a href="#" data-icon="gear">Preferencat</a></li>
+                <li><a href="#Settings" data-icon="gear" data-transition="slide">Preferencat</a></li>
                 <li><a href="#home" data-icon="grid" data-transition="flip">Ballina</a></li>
                 <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
 
@@ -110,7 +110,7 @@
     <div data-role="footer" data-position="fixed" style="height:56px;">
         <div data-role="navbar" data-iconpos="top">
             <ul>
-                <li><a href="#" data-icon="gear">Preferencat</a></li>
+                <li><a href="#Settings" data-icon="gear" data-transition="slide">Preferencat</a></li>
                 <li><a href="#home" data-icon="grid" data-transition="flip">Ballina</a></li>
                 <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
 
@@ -138,7 +138,7 @@
     <div data-role="footer" data-position="fixed" style="height:56px;">
         <div data-role="navbar" data-iconpos="top">
             <ul>
-                <li><a href="#" data-icon="gear">Preferencat</a></li>
+                <li><a href="#Settings" data-icon="gear" data-transition="slide">Preferencat</a></li>
                 <li><a href="#home" data-icon="grid" data-transition="flip">Ballina</a></li>
                 <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
             </ul>
@@ -176,7 +176,7 @@
     <div data-role="footer" data-position="fixed" style="height:56px;">
         <div data-role="navbar" data-iconpos="top">
             <ul>
-                <li><a href="#" data-icon="gear">Preferencat</a></li>
+                <li><a href="#Settings" data-icon="gear" data-transition="slide">Preferencat</a></li>
                 <li><a href="#home" data-icon="grid" data-transition="flip">Ballina</a></li>
                 <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
 
@@ -213,7 +213,7 @@
     <div data-role="footer" data-position="fixed" style="height:56px;">
         <div data-role="navbar" data-iconpos="top">
             <ul>
-                <li><a href="#" data-icon="gear">Preferencat</a></li>
+                <li><a href="#Settings" data-icon="gear" data-transition="slide">Preferencat</a></li>
                 <li><a href="#home" data-icon="grid" data-transition="flip">Ballina</a></li>
                 <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
 
@@ -240,8 +240,8 @@
             </thead>
             <tbody id="tableEURO">
             <tr>
-                <td id="koha"></td>
-                <td id="koha2"></td>
+                <td id="koha" style="text-align:right"></td>
+                <td id="koha2" style="text-align:right"></td>
             </tr>
             </tbody>
         </table>
@@ -250,7 +250,45 @@
     <div data-role="footer" data-position="fixed" style="height:56px;">
         <div data-role="navbar" data-iconpos="top">
             <ul>
-                <li><a href="#" data-icon="gear">Preferencat</a></li>
+                <li><a href="#Settings" data-icon="gear" data-transition="slide">Preferencat</a></li>
+                <li><a href="#home" data-icon="grid" data-transition="flip">Ballina</a></li>
+                <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div data-role="page" id="Settings">
+    <div data-role="header" style="padding-top: 20px;">
+        <p align="center">Preferencat</p>
+        <a href="#home" data-transition="slide" class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-shadow" style="margin-top:25px"></a>
+    </div>
+
+    <div data-role="content">
+        <form>
+            <fieldset data-role="controlgroup">
+                <legend>Zgjidhni Agjencionin:</legend>
+                <input type="radio" name="agjencioniZgjedhur" id="idotours" value="idotours">
+                <label for="idotours">Ido Tours</label>
+                <input type="radio" name="agjencioniZgjedhur" id="nasirtours" value="nasirtours">
+                <label for="nasirtours">Nasir Tours</label>
+                <input type="radio" name="agjencioniZgjedhur" id="eurotours" value="eurotours">
+                <label for="eurotours">Euro Tours</label>
+                <input type="radio" name="agjencioniZgjedhur" id="tegjitha" value="tegjitha">
+                <label for="tegjitha">Te Gjitha</label>
+
+            </fieldset>
+        </form>
+    </div>
+
+
+
+
+    <div data-role="footer" data-position="fixed" style="height:56px;">
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#Settings" data-icon="gear">Preferencat</a></li>
                 <li><a href="#home" data-icon="grid" data-transition="flip">Ballina</a></li>
                 <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
 
@@ -325,11 +363,11 @@
 
 
                 cell1.innerHTML = agjencioni;
-                cell1.setAttribute("align", "left");
+                cell1.style.textAlign = "left";
                 cell2.innerHTML = orariFull[i];
-                cell2.setAttribute("align", "center");
+                cell2.style.textAlign = "center";
                 cell3.innerHTML = calculateTime(orariFull[i], time);
-                cell3.setAttribute("align", "right");
+                cell3.style.textAlign = "right";
                 existsCity = true;
                 autobusa++;
             }
@@ -343,11 +381,11 @@
             var cell3 = row.insertCell(2);
 
             cell1.innerHTML = agjencioni;
-            cell1.setAttribute("align", "left");
+            cell1.style.textAlign = "left";
             cell2.innerHTML = "Nuk ka autobus tjetër për sot.";
-            cell2.setAttribute("align", "center");
+            cell2.style.textAlign = "center";
             cell3.innerHTML = "";
-            cell3.setAttribute("align", "right");
+            cell3.style.textAlign = "right";
             existsCity = true;
         }
 
@@ -362,13 +400,13 @@
         {
             var row = table.insertRow(orariFull[i]);
             var cell1 = row.insertCell(0);
+            cell1.style.textAlign = "center";
             var cell2 = row.insertCell(1);
+            cell2.style.textAlign = "center";
             var cell3 = row.insertCell(2);
 
             cell1.innerHTML = orariFull[i];
-            cell1.setAttribute("align", "left");
             cell2.innerHTML = orariFull2[i];
-            cell2.setAttribute("align", "right");
             existsCity = true;
         }
     }
