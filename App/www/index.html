@@ -14,516 +14,475 @@
     <title>LuckyBuss App</title>
 </head>
 <body>
-    <div data-role="page" id="home">
-        <div data-role="header" style="padding-top: 20px;">
-            <p align="center">LuckyBuss</p>
-        </div>
-
-        <div data-role="content">
-		
-            <h3 style="text-align:center;">Zgjidhni destinacionin tuaj?</h3>
-            <a href="#Gostivar" data-transition="slide" data-role="button" id="Gostivari">Gostivar</a>
-			<a href="#Tetov" data-transition="slide" data-role="button" id="Tetova">Tetovë</a>
-			<br />
-			<h5 style="text-align:center;">Agjencioni i zgjedhur:</h5>
-			<h3 style="text-align:center;"><div id="agjencioniZgjedhur"></div></h3>
-        </div>
-
-        <div data-role="footer" data-position="fixed" style="height:56px;">
-            <div data-role="navbar" data-iconpos="top">
-                <ul>
-                    <li><a href="#Settings" data-icon="gear">Preferencat</a></li>
-                    <li><a href="#home" data-icon="grid" data-transition="flip">Ballina</a></li>
-                    <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
-                </ul>
-            </div>
-        </div>
-
+<div data-role="page" id="home">
+    <div data-role="header" style="padding-top: 20px;">
+        <p align="center">LuckyBuss</p>
     </div>
 
-    <div data-role="page" id="Gostivar">
-        <div data-role="header" style="padding-top: 20px;">
-            <p align="center">My Buss Schedule</p>
-            <a href="#home" data-transition="flip" class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-home ui-btn-icon-notext ui-shadow" style="margin-top:25px"></a>
-        </div>
+    <div data-role="content">
 
-        <div data-role="content">
-            
-            <table data-role="table" data-mode="" class="ui-shadow table-stripe ui-responsive" id="tableGostivari">
-                <thead>
-                    <tr>
-                        <th>Agjencioni</th>
-                        <th style="text-align: center;">Koha</th>
-                        <th style="text-align: right;">Koha e Mbetur</th>
+        <h3 style="text-align:center;">Zgjidhni destinacionin tuaj?</h3>
+        <a href="#Gostivar" data-transition="slide" class="ui-btn">Gostivar</a>
+        <a href="#Tetov" data-transition="slide" class="ui-btn">Tetovë</a>
+        <br />
+        <h5 style="text-align:center;">Agjencioni i zgjedhur:</h5>
+        <h3 style="text-align:center;"><div id="agjencioniZgjedhur"></div></h3>
+    </div>
 
-                    </tr>
-                </thead>
-                <tbody id="tableGV">
-                    <tr>
-                        <td id="agency"></td>
-                        <td id="agencyTime"></td>
-                        <td id="timeLeft"></td>
-
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-		<div data-role="footer" data-position="fixed" style="height:56px;">
-            <div data-role="navbar" data-iconpos="top">
-                <ul>
-                    <li><a href="#Settings" data-icon="gear">Preferencat</a></li>
-                    <li><a href="#home" data-icon="grid" data-transition="flip">Ballina</a></li>
-                    <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
-
-                </ul>
-            </div>
+    <div data-role="footer" data-position="fixed" style="height:56px;">
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#" data-icon="gear">Preferencat</a></li>
+                <li><a href="#home" data-icon="grid" data-transition="flip">Ballina</a></li>
+                <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
+            </ul>
         </div>
     </div>
 
-    <div data-role="page" id="Tetov">
-        <div data-role="header" style="padding-top: 20px;">
-            <p align="center">My Buss Schedule</p>
-            <a href="#home" data-transition="flip" class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-home ui-btn-icon-notext ui-shadow" style="margin-top:25px"></a>
-        </div>
+</div>
 
-        <div data-role="content">
-            
-            <table data-role="table" data-mode="" class="ui-shadow table-stripe ui-responsive" id="tableTetova">
-                <thead>
-                    <tr>
-                        <th style="text-align: left;">Agjencioni</th>
-                        <th style="text-align: center;">Koha</th>
-                        <th style="text-align: right;">Koha e Mbetur</th>
-                    </tr>
-                </thead>
-                <tbody id="tableTE">
-                    <tr>
-                        <td id="agency"></td>
-                        <td id="agencyTime"></td>
-                        <td id="timeLeft"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+<div data-role="page" id="Gostivar">
+    <div data-role="header" style="padding-top: 20px;">
+        <p align="center">My Buss Schedule</p>
+        <a href="#home" data-transition="flip" class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-home ui-btn-icon-notext ui-shadow" style="margin-top:25px"></a>
+    </div>
 
-        <div data-role="footer" data-position="fixed" style="height:56px;">
-            <div data-role="navbar" data-iconpos="top">
-                <ul>
-                    <li><a href="#Settings" data-icon="gear">Preferencat</a></li>
-                    <li><a href="#home" data-icon="grid" data-transition="flip">Ballina</a></li>
-                    <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
+    <div data-role="content">
 
-                </ul>
-            </div>
+        <table data-role="table" data-mode="" class="ui-shadow table-stripe ui-responsive" id="tableGostivari">
+            <thead>
+            <tr>
+                <th>Agjencioni</th>
+                <th style="text-align: center;">Koha</th>
+                <th style="text-align: right;">Koha e Mbetur</th>
+
+            </tr>
+            </thead>
+            <tbody id="tableGV">
+            <tr>
+                <td id="agency"></td>
+                <td id="agencyTime"></td>
+                <td id="timeLeft"></td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div data-role="footer" data-position="fixed" style="height:56px;">
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#" data-icon="gear">Preferencat</a></li>
+                <li><a href="#home" data-icon="grid" data-transition="flip">Ballina</a></li>
+                <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
+
+            </ul>
         </div>
     </div>
-	
-	
-	
-	<div data-role="page" id="OrariAll">
-        <div data-role="header" style="padding-top: 20px;">
-            <p align="center">LuckyBuss</p>
-            <a href="#home" data-transition="flip" class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-home ui-btn-icon-notext ui-shadow" style="margin-top:25px"></a>
-        </div>
+</div>
 
-        <div data-role="content">
-           
-            <h3 style="text-align:center;">Zgjidhni agjencionin</h3>
-            <a href="#OrariIDO" data-transition="slide" data-role="button" id="Gostivari">Ido Tours</a>
-			<a href="#OrariNASIR" data-transition="slide" data-role="button" id="Tetova">Nasir Tours</a>
-			<a href="#OrariEURO" data-transition="slide" data-role="button" id="Tetova">Euro Bus</a>
-        </div>
-
-        <div data-role="footer" data-position="fixed" style="height:56px;">
-            <div data-role="navbar" data-iconpos="top">
-                <ul>
-                    <li><a href="#Settings" data-icon="gear">Preferencat</a></li>
-                    <li><a href="#home" data-icon="grid" data-transition="flip">Ballina</a></li>
-                    <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
-                </ul>
-            </div>
-        </div>
-
+<div data-role="page" id="Tetov">
+    <div data-role="header" style="padding-top: 20px;">
+        <p align="center">My Buss Schedule</p>
+        <a href="#home" data-transition="flip" class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-home ui-btn-icon-notext ui-shadow" style="margin-top:25px"></a>
     </div>
-	
-	
-	
-	<div data-role="page" id="OrariIDO">
-        <div data-role="header" style="padding-top: 20px;">
-            <p align="center">Orari për Gostivar dhe Tetovë</p>
-            <a href="#OrariAll" data-transition="slide" class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-shadow" style="margin-top:25px"></a>
-        </div>
 
-        <div data-role="content">
-            
-            <table data-role="table" data-mode="" class="ui-shadow table-stripe ui-responsive" id="tableIDOorari">
-                <thead>
-                    <tr>                        
-                        <th>Koha</th>
-                        <th>Destinacioni</th>
-                    </tr>
-                </thead>
-                <tbody id="tableIDO">
-                    <tr>
-                        <td id="agencyTime"></td>
-						<td id="agencyDirection"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <div data-role="content">
 
-        <div data-role="footer" data-position="fixed" style="height:56px;">
-            <div data-role="navbar" data-iconpos="top">
-                <ul>
-                    <li><a href="#Settings" data-icon="gear">Preferencat</a></li>
-                    <li><a href="#home" data-icon="grid" data-transition="flip">Ballina</a></li>
-                    <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
+        <table data-role="table" data-mode="" class="ui-shadow table-stripe ui-responsive" id="tableTetova">
+            <thead>
+            <tr>
+                <th style="text-align: left;">Agjencioni</th>
+                <th style="text-align: center;">Koha</th>
+                <th style="text-align: right;">Koha e Mbetur</th>
+            </tr>
+            </thead>
+            <tbody id="tableTE">
+            <tr>
+                <td id="agency"></td>
+                <td id="agencyTime"></td>
+                <td id="timeLeft"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
-                </ul>
-            </div>
+    <div data-role="footer" data-position="fixed" style="height:56px;">
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#" data-icon="gear">Preferencat</a></li>
+                <li><a href="#home" data-icon="grid" data-transition="flip">Ballina</a></li>
+                <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
+
+            </ul>
         </div>
     </div>
-	
-	
-	<div data-role="page" id="OrariNASIR">
-        <div data-role="header" style="padding-top: 20px;">
-            <p align="center">Orari për Gostivar dhe Tetovë</p>
-            <a href="#OrariAll" data-transition="slide" class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-shadow" style="margin-top:25px"></a>
-        </div>
+</div>
 
-        <div data-role="content">
-            
-            <table data-role="table" data-mode="" class="ui-shadow table-stripe ui-responsive" id="tableNASIRorari">
-                <thead>
-                    <tr>
-                        <th style="text-align: center;">Koha</th>
-                        <th style="text-align: right;">Destinacioni</th>						
-                    </tr>
-                </thead>
-                <tbody id="tableNASIR">
-                    <tr>
-                        <td id="agencyTime"></td>
-						<td id="agencyDirection"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
 
-        <div data-role="footer" data-position="fixed" style="height:56px;">
-            <div data-role="navbar" data-iconpos="top">
-                <ul>
-                    <li><a href="#Settings" data-icon="gear">Preferencat</a></li>
-                    <li><a href="#home" data-icon="grid" data-transition="flip">Ballina</a></li>
-                    <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
 
-                </ul>
-            </div>
+<div data-role="page" id="OrariAll">
+    <div data-role="header" style="padding-top: 20px;">
+        <p align="center">LuckyBuss</p>
+        <a href="#home" data-transition="flip" class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-home ui-btn-icon-notext ui-shadow" style="margin-top:25px"></a>
+    </div>
+
+    <div data-role="content">
+
+        <h3 style="text-align:center;">Zgjidhni agjencionin</h3>
+        <a href="#OrariIDO" data-transition="slide" data-role="button">Ido Tours</a>
+        <a href="#OrariNASIR" data-transition="slide" data-role="button">Nasir Tours</a>
+        <a href="#OrariEURO" data-transition="slide" data-role="button">Euro Bus</a>
+    </div>
+
+    <div data-role="footer" data-position="fixed" style="height:56px;">
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#" data-icon="gear">Preferencat</a></li>
+                <li><a href="#home" data-icon="grid" data-transition="flip">Ballina</a></li>
+                <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
+            </ul>
         </div>
     </div>
 
-	
-	<div data-role="page" id="OrariEURO">
-        <div data-role="header" style="padding-top: 20px;">
-            <p align="center">Orari për Gostivar dhe Tetovë</p>
-            <a href="#OrariAll" data-transition="slide" class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-shadow" style="margin-top:25px"></a>
-        </div>
+</div>
 
-        <div data-role="content">
-            
-            <table data-role="table" data-mode="" class="ui-shadow table-stripe ui-responsive" id="tableEUROorari">
-                <thead>
-                    <tr>
-                        <th style="text-align: center;">Koha</th>
-                        <th style="text-align: right;">Destinacioni</th>						
-                    </tr>
-                </thead>
-                <tbody id="tableEURO">
-                    <tr>
-                        <td id="agencyTime"></td>
-						<td id="agencyDirection"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
 
-        <div data-role="footer" data-position="fixed" style="height:56px;">
-            <div data-role="navbar" data-iconpos="top">
-                <ul>
-                    <li><a href="#Settings" data-icon="gear">Preferencat</a></li>
-                    <li><a href="#home" data-icon="grid" data-transition="flip">Ballina</a></li>
-                    <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
 
-                </ul>
-            </div>
-        </div>
+<div data-role="page" id="OrariIDO">
+    <div data-role="header" style="padding-top: 20px;">
+        <p align="center">Ido Tours</p>
+        <a href="#OrariAll" data-transition="slide" class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-shadow" style="margin-top:25px"></a>
     </div>
 
+    <div data-role="content">
 
-    <div data-role="page" id="Settings">
-        <div data-role="header" style="padding-top: 20px;">
-            <p align="center">Preferencat</p>
-            <a href="#home" data-transition="slide" class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-shadow" style="margin-top:25px"></a>
-        </div>
+        <table data-role="table" data-mode="" class="ui-shadow table-stripe ui-responsive" id="tableIDOorari">
+            <thead>
+            <tr>
+                <th style="text-align: left;">Nisja nga Gostivari</th>
+                <th style="text-align: left;">Nisja nga Tetova</th>
+            </tr>
+            </thead>
+            <tbody id="tableIDO">
+            <tr>
+                <td id="koha"></td>
+                <td id="koha2"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
-        <div data-role="content">
-        <form>
-            <fieldset data-role="controlgroup">
-                <legend>Zgjidhni Agjencionin:</legend>
-                <input type="radio" name="agjencioniZgjedhur" id="idotours" value="idotours">
-                <label for="idotours">Ido Tours</label>
-                <input type="radio" name="agjencioniZgjedhur" id="nasirtours" value="nasirtours">
-                <label for="nasirtours">Nasir Tours</label>
-                <input type="radio" name="agjencioniZgjedhur" id="eurotours" value="eurotours">
-                <label for="eurotours">Euro Tours</label>
-            </fieldset>
-        </form>
-        </div>
+    <div data-role="footer" data-position="fixed" style="height:56px;">
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#" data-icon="gear">Preferencat</a></li>
+                <li><a href="#home" data-icon="grid" data-transition="flip">Ballina</a></li>
+                <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
 
-
-
-
-        <div data-role="footer" data-position="fixed" style="height:56px;">
-            <div data-role="navbar" data-iconpos="top">
-                <ul>
-                    <li><a href="#Settings" data-icon="gear">Preferencat</a></li>
-                    <li><a href="#home" data-icon="grid" data-transition="flip">Ballina</a></li>
-                    <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
-
-                </ul>
-            </div>
+            </ul>
         </div>
     </div>
-	
-	
-	
-   <!-- <script type="text/javascript" src="cordova.js"></script> -->
-    <script type="text/javascript" src="js/index.js"></script>
-    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script> -->
-    <script type="text/javascript">
-	
-        app.initialize();
-        var date = new Date();
+</div>
 
-        var orari = {"oraret":{"Ido Tours":{"Gostivar":{"destinacioni":"Tetovë","orari":["06:20","07:10","08:10","09:40","11:10","12:45","13:20","14:30","15:45","17:10","19:00","20:25"]},"Tetovë":{"destinacioni":"Gostivar","orari":["05:45","06:20","07:25","08:50","10:25","11:55","12:30","13:45","15:10","16:20","17:55","19:40"]}},"Nasir Tours":{"Gostivar":{"destinacioni":"Tetovë","orari":["07:20","08:20","08:50","09:20","10:30","10:50","11:50","12:20","13:40","15:20","16:50","18:20"]},"Tetovë":{"destinacioni":"Gostivar","orari":["07:50","09:00","10:10","11:00","11:40","12:40","13:10","14:30","15:25","16:10","17:30","19:20"]}},"Euro Tours":{"Gostivar":{"destinacioni":"Tetovë","orari":["06:35","07:30","08:30","09:00","10:00","10:30","11:30","12:00","13:00","14:45","16:00","17:30"]},"Tetovë":{"destinacioni":"Gostivar","orari":["07:40","08:10","09:10","09:40","10:40","12:10","14:00","15:30","16:40","18:10"]}}}};
-		
-		var agjencioniZgjedhur = "Ido Tours";
-		document.getElementById('agjencioniZgjedhur').innerHTML = agjencioniZgjedhur;
-		
-		
-		var hours = date.getHours();
-		var minutes = date.getMinutes();
-		var time = hours + ":" + minutes;
-		//var times = "20:30";
-        
-		var existsCity;
-        var existsTE;
-		var existsAll;
 
-		function calculateTime(a, b)
+<div data-role="page" id="OrariNASIR">
+    <div data-role="header" style="padding-top: 20px;">
+        <p align="center">Nasir Tours</p>
+        <a href="#OrariAll" data-transition="slide" class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-shadow" style="margin-top:25px"></a>
+    </div>
+
+    <div data-role="content">
+
+        <table data-role="table" data-mode="" class="ui-shadow table-stripe ui-responsive" id="tableNASIRorari">
+            <thead>
+            <tr>
+                <th style="text-align: left;">Nisja nga Gostivari</th>
+                <th style="text-align: left;">Nisja nga Tetova</th>
+            </tr>
+            </thead>
+            <tbody id="tableNASIR">
+            <tr>
+                <td id="koha"></td>
+                <td id="koha2"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div data-role="footer" data-position="fixed" style="height:56px;">
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#" data-icon="gear">Preferencat</a></li>
+                <li><a href="#home" data-icon="grid" data-transition="flip">Ballina</a></li>
+                <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div data-role="page" id="OrariEURO">
+    <div data-role="header" style="padding-top: 20px;">
+        <p align="center">Euro Tours</p>
+        <a href="#OrariAll" data-transition="slide" class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-shadow" style="margin-top:25px"></a>
+    </div>
+
+    <div data-role="content">
+
+        <table data-role="table" data-mode="" class="ui-shadow table-stripe ui-responsive" id="tableEUROorari">
+            <thead>
+            <tr>
+                <th style="text-align: left;">Nisja nga Gostivari</th>
+                <th style="text-align: left;">Nisja nga Tetova</th>
+            </tr>
+            </thead>
+            <tbody id="tableEURO">
+            <tr>
+                <td id="koha"></td>
+                <td id="koha2"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div data-role="footer" data-position="fixed" style="height:56px;">
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#" data-icon="gear">Preferencat</a></li>
+                <li><a href="#home" data-icon="grid" data-transition="flip">Ballina</a></li>
+                <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <script type="text/javascript" src="cordova.js"></script> -->
+<script type="text/javascript" src="js/index.js"></script>
+<!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script> -->
+<script type="text/javascript">
+
+    app.initialize();
+
+    var date = new Date();
+
+    var orari = {"oraret":{"Ido Tours":{"Gostivar":{"destinacioni":"Tetovë","orari":["06:20","07:10","08:10","09:40","11:10","12:45","13:20","14:30","15:45","17:10","19:00","20:25"]},"Tetovë":{"destinacioni":"Gostivar","orari":["05:45","06:20","07:25","08:50","10:25","11:55","12:30","13:45","15:10","16:20","17:55","19:40"]}},"Nasir Tours":{"Gostivar":{"destinacioni":"Tetovë","orari":["07:20","08:20","08:50","09:20","10:30","10:50","11:50","12:20","13:40","15:20","16:50","18:20"]},"Tetovë":{"destinacioni":"Gostivar","orari":["07:50","09:00","10:10","11:00","11:40","12:40","13:10","14:30","15:25","16:10","17:30","19:20"]}},"Euro Tours":{"Gostivar":{"destinacioni":"Tetovë","orari":["05:15","06:35","07:30","08:30","09:00","10:00","11:30","13:00","14:45","16:00","17:30","19:15"]},"Tetovë":{"destinacioni":"Gostivar","orari":["06:00","07:40","08:10","09:10","09:40","10:40","12:10","14:00","15:30","16:40","18:10","20:00"]}}}};
+
+    var agjencioniZgjedhur = "Ido Tours";
+    document.getElementById('agjencioniZgjedhur').innerHTML = agjencioniZgjedhur;
+
+
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var time = hours + ":" + minutes;
+    //var times = "02:30";
+
+    var existsCity;
+    var existsTE;
+    var existsAll;
+
+    function calculateTime(a, b)
+    {
+
+        var startTimeArray = a.split(":");
+        var startInputHrs = parseInt(startTimeArray[0]);
+        var startInputMins = parseInt(startTimeArray[1]);
+
+        var endTimeArray = b.split(":");
+        var endInputHrs = parseInt(endTimeArray[0]);
+        var endInputMins = parseInt(endTimeArray[1]);
+
+        var resultFirst;
+        var result;
+
+        resultFirst = ((startInputHrs * 60) + startInputMins) - ((endInputHrs * 60) + endInputMins);
+
+        var hours = (Math.floor(Math.abs(resultFirst) / 60));
+        var minutes = (Math.abs(resultFirst) % 60);
+
+        return result = hours + " h " + " : " + minutes + " m ";
+
+    }
+
+    function kontrolloOraret (agjencioni, vendi, table, existsCity){
+
+        var autobusa = 0;
+        var orariFull = orari["oraret"][agjencioni][vendi]["orari"];
+
+        for (var i = orariFull.length; i > 0; i--)
         {
 
-            var startTimeArray = a.split(":");
-            var startInputHrs = parseInt(startTimeArray[0]);
-            var startInputMins = parseInt(startTimeArray[1]);
+            if (time < orariFull[i])
+            {
+                var row = table.insertRow(orariFull[i]);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
 
-            var endTimeArray = b.split(":");
-            var endInputHrs = parseInt(endTimeArray[0]);
-            var endInputMins = parseInt(endTimeArray[1]);
 
-            var resultFirst;
-            var result;
+                cell1.innerHTML = agjencioni;
+                cell1.setAttribute("align", "left");
+                cell2.innerHTML = orariFull[i];
+                cell2.setAttribute("align", "center");
+                cell3.innerHTML = calculateTime(orariFull[i], time);
+                cell3.setAttribute("align", "right");
+                existsCity = true;
+                autobusa++;
+            }
 
-            resultFirst = ((startInputHrs * 60) + startInputMins) - ((endInputHrs * 60) + endInputMins);
-
-            var hours = (Math.floor(Math.abs(resultFirst) / 60));
-            var minutes = (Math.abs(resultFirst) % 60);
-                      
-            return result = hours + " h " + " : " + minutes + " m ";
-           
         }
-		
-		function kontrolloOraret (agjencioni, vendi, table, existsCity){
-		
-		var autobusa = 0;
-		var orariFull = orari["oraret"][agjencioni][vendi]["orari"];
+        if (autobusa == 0)
+        {
+            var row = table.insertRow(1);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+
+            cell1.innerHTML = agjencioni;
+            cell1.setAttribute("align", "left");
+            cell2.innerHTML = "Nuk ka autobus tjetër për sot.";
+            cell2.setAttribute("align", "center");
+            cell3.innerHTML = "";
+            cell3.setAttribute("align", "right");
+            existsCity = true;
+        }
+
+    }
+
+    function tregoOraret (agjencioni, vendi, table, existsCity){
+
+        var orariFull = orari["oraret"][agjencioni]["Gostivar"]["orari"];
+        var orariFull2 = orari["oraret"][agjencioni]["Tetovë"]["orari"];
+
+        for (var i = orariFull.length-1; i > 0; i--)
+        {
+            var row = table.insertRow(orariFull[i]);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+
+            cell1.innerHTML = orariFull[i];
+            cell1.setAttribute("align", "left");
+            cell2.innerHTML = orariFull2[i];
+            cell2.setAttribute("align", "right");
+            existsCity = true;
+        }
+    }
 
 
-		
-		for (var i = orariFull.length; i > 0; i--)
-                {
+    $("#Gostivar").on("pageshow", function () {
 
-                    if (time < orariFull[i])
-                    {
+        $("#tableGostivari td").remove();
+
+        if (existsCity==true)
+        {
+            table.innerHTML = "";
+        }
+
+        var table = document.getElementById("tableGV");
+        var agjencioni = agjencioniZgjedhur;
+        var vendi = "Gostivar";
+
+        kontrolloOraret (agjencioni,vendi, table, existsCity);
+
+        $("#tableGostivari").trigger("create");
+        $("#tableGostivari").table("refresh");
+        existsCity = false;
+
+    });
 
 
-                        var row = table.insertRow(orariFull[i]);
-                        var cell1 = row.insertCell(0);
-                        var cell2 = row.insertCell(1);
-                        var cell3 = row.insertCell(2);
+    $("#Tetov").on("pageshow", function () {
+
+        $("#tableTetova td").remove();
+
+        if (existsCity==true)
+        {
+            table2.innerHTML = "";
+        }
+
+        var table2 = document.getElementById("tableTE");
+        var agjencioni = agjencioniZgjedhur;
+        var vendi = "Tetovë";
+
+        kontrolloOraret (agjencioni,vendi, table2, existsCity);
+
+        $("#tableTetova").trigger("create");
+        $("#tableTetova").table("refresh");
+        existsCity = false;
+
+    });
 
 
-                        cell1.innerHTML = agjencioni;
-                        cell1.setAttribute("align", "left");
-                        cell2.innerHTML = orariFull[i];
-                        cell2.setAttribute("align", "center");
-                        cell3.innerHTML = calculateTime(orariFull[i], time);
-                        cell3.setAttribute("align", "right");
-                        existsCity = true;
-						autobusa++;
-                    }
-			
-                }
-					if (autobusa == 0)
-					{
-						var row = table.insertRow(1);
-                        var cell1 = row.insertCell(0);
-                        var cell2 = row.insertCell(1);
-                        var cell3 = row.insertCell(2);
-						
-						cell1.innerHTML = agjencioni;
-                        cell1.setAttribute("align", "left");
-                        cell2.innerHTML = "Nuk ka autobus tjetër për sot.";
-                        cell2.setAttribute("align", "center");
-						cell3.innerHTML = "";
-                        cell3.setAttribute("align", "right");
-						existsCity = true;
-					}
-		
-		}
-		
-		function tregoOraret (agjencioni, vendi, table, existsCity){
-		
-		var orariFull = orari["oraret"][agjencioni][vendi]["orari"];
-		
-		for (var i = orariFull.length-1; i > 0; i--)
-                {
-                        var row = table.insertRow(orariFull[i]);
-                        var cell1 = row.insertCell(0);
-                        var cell2 = row.insertCell(1);
+    $("#OrariIDO").on("pageshow", function () {
 
-                        cell1.innerHTML = orariFull[i];
+        $("#tableIDOorari td").remove();
 
-                        cell2.innerHTML = vendi;
+        if (existsCity==true)
+        {
+            table3.innerHTML = "";
+        }
 
-                        existsCity = true;
-                }
-		}
-		
-		$("#Gostivar").on("pageshow", function () {
+        var table3 = document.getElementById("tableIDO");
+        var agjencioni = "Ido Tours";
+        var vendi = "Tetovë";
 
-			$("#tableGostivari td").remove();
-			
-			if (existsCity==true)
-             {
-                 table.innerHTML = "";
-             }
-			 
-			var table = document.getElementById("tableGV");
-			var agjencioni = agjencioniZgjedhur;
-			var vendi = "Gostivar";
-			
-			kontrolloOraret (agjencioni,vendi, table, existsCity);
-		 					
-                $("#tableGostivari").trigger("create");
-                $("#tableGostivari").table("refresh");
-			existsCity = false;
-            
-        });
-	
-	
-		$("#Tetov").on("pageshow", function () {
-			
-			$("#tableTetova td").remove();
+        tregoOraret (agjencioni,vendi, table3, existsCity);
 
-			if (existsCity==true)
-             {
-                 table2.innerHTML = "";
-             }
-			 
-			var table2 = document.getElementById("tableTE");
-			var agjencioni = agjencioniZgjedhur;
-			var vendi = "Tetovë";
-			
-			kontrolloOraret (agjencioni,vendi, table2, existsCity);
-		 					
-                $("#tableTetova").trigger("create");
-                $("#tableTetova").table("refresh");
-			existsCity = false;
-			
-        });
-		
-		
-		$("#OrariIDO").on("pageshow", function () {
-			
-			$("#tableIDOorari td").remove();
 
-			if (existsCity==true)
-             {
-                 table3.innerHTML = "";
-             }
-			 
-			var table3 = document.getElementById("tableIDO");
-			var agjencioni = "Ido Tours";
-			var vendi = "Tetovë";
-			
-			tregoOraret (agjencioni,vendi, table3, existsCity);
-			vendi = "Gostivar";
-			tregoOraret (agjencioni,vendi, table3, existsCity);
-		 					
-                $("#tableIDOorari").trigger("create");
-                $("#tableIDOorari").table("refresh");
-			existsCity = false;
-			
-        });
-		
-		$("#OrariNASIR").on("pageshow", function () {
-			
-			$("#tableNASIRorari td").remove();
+        $("#tableIDOorari").trigger("create");
+        $("#tableIDOorari").table("refresh");
+        existsCity = false;
 
-			if (existsCity==true)
-             {
-                 table4.innerHTML = "";
-             }
-			 
-			var table4 = document.getElementById("tableNASIR");
-			var agjencioni = "Nasir Tours";
-			var vendi = "Tetovë";
-			
-			tregoOraret (agjencioni,vendi, table4, existsCity);
-			vendi = "Gostivar";
-			tregoOraret (agjencioni,vendi, table4, existsCity);
-		 					
-                $("#tableNASIRorari").trigger("create");
-                $("#tableNASIRorari").table("refresh");
-			existsCity = false;
-			
-        });
-		
-		
-		$("#OrariEURO").on("pageshow", function () {
-			
-			$("#tableEUROorari td").remove();
+    });
 
-			if (existsCity==true)
-             {
-                 table5.innerHTML = "";
-             }
-			 
-			var table5 = document.getElementById("tableEURO");
-			var agjencioni = "Euro Tours";
-			var vendi = "Tetovë";
-			
-			tregoOraret (agjencioni,vendi, table5, existsCity);
-			vendi = "Gostivar";
-			tregoOraret (agjencioni,vendi, table5, existsCity);
-		 					
-                $("#tableEUROorari").trigger("create");
-                $("#tableEUROorari").table("refresh");
-			existsCity = false;
-			
-        });
+    $("#OrariNASIR").on("pageshow", function () {
 
-    </script>
+        $("#tableNASIRorari td").remove();
+
+        if (existsCity==true)
+        {
+            table4.innerHTML = "";
+        }
+
+        var table4 = document.getElementById("tableNASIR");
+        var agjencioni = "Nasir Tours";
+        var vendi = "Tetovë";
+
+        tregoOraret (agjencioni,vendi, table4, existsCity);
+
+        $("#tableNASIRorari").trigger("create");
+        $("#tableNASIRorari").table("refresh");
+        existsCity = false;
+
+    });
+
+
+    $("#OrariEURO").on("pageshow", function () {
+
+        $("#tableEUROorari td").remove();
+
+        if (existsCity==true)
+        {
+            table5.innerHTML = "";
+        }
+
+        var table5 = document.getElementById("tableEURO");
+        var agjencioni = "Euro Tours";
+        var vendi = "Tetovë";
+
+        tregoOraret (agjencioni,vendi, table5, existsCity);
+
+        $("#tableEUROorari").trigger("create");
+        $("#tableEUROorari").table("refresh");
+        existsCity = false;
+
+    });
+
+</script>
 </body>
 </html>
