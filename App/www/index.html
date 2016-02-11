@@ -266,17 +266,17 @@
     </div>
 
     <div data-role="content">
-        <form>
+        <form id = "forma">
             <fieldset data-role="controlgroup">
                 <legend>Zgjidhni Agjencionin:</legend>
-                <input type="radio" name="agjencioniZgjedhur" id="idotours" value="idotours">
+                <input type="radio" name="agjencioniZgjedhur" id="idotours" value="Ido Tours">
                 <label for="idotours">Ido Tours</label>
-                <input type="radio" name="agjencioniZgjedhur" id="nasirtours" value="nasirtours">
+                <input type="radio" name="agjencioniZgjedhur" id="nasirtours" value="Nasir Tours">
                 <label for="nasirtours">Nasir Tours</label>
-                <input type="radio" name="agjencioniZgjedhur" id="eurotours" value="eurotours">
+                <input type="radio" name="agjencioniZgjedhur" id="eurotours" value="Euro Tours">
                 <label for="eurotours">Euro Tours</label>
-                <input type="radio" name="agjencioniZgjedhur" id="tegjitha" value="tegjitha">
-                <label for="tegjitha">Te Gjitha</label>
+                <input type="radio" name="agjencioniZgjedhur" id="tegjitha" value="Të Gjitha">
+                <label for="tegjitha">Të Gjitha</label>
 
             </fieldset>
         </form>
@@ -306,13 +306,31 @@
 
     app.initialize();
 
+    var agjencioniZgjedhur;
+	
     var date = new Date();
 
     var orari = {"oraret":{"Ido Tours":{"Gostivar":{"destinacioni":"Tetovë","orari":["06:20","07:10","08:10","09:40","11:10","12:45","13:20","14:30","15:45","17:10","19:00","20:25"]},"Tetovë":{"destinacioni":"Gostivar","orari":["05:45","06:20","07:25","08:50","10:25","11:55","12:30","13:45","15:10","16:20","17:55","19:40"]}},"Nasir Tours":{"Gostivar":{"destinacioni":"Tetovë","orari":["07:20","08:20","08:50","09:20","10:30","10:50","11:50","12:20","13:40","15:20","16:50","18:20"]},"Tetovë":{"destinacioni":"Gostivar","orari":["07:50","09:00","10:10","11:00","11:40","12:40","13:10","14:30","15:25","16:10","17:30","19:20"]}},"Euro Tours":{"Gostivar":{"destinacioni":"Tetovë","orari":["05:15","06:35","07:30","08:30","09:00","10:00","11:30","13:00","14:45","16:00","17:30","19:15"]},"Tetovë":{"destinacioni":"Gostivar","orari":["06:00","07:40","08:10","09:10","09:40","10:40","12:10","14:00","15:30","16:40","18:10","20:00"]}}}};
 
-    var agjencioniZgjedhur = "Ido Tours";
-    document.getElementById('agjencioniZgjedhur').innerHTML = agjencioniZgjedhur;
-
+	if (localStorage.getItem("agjencioniZgjedhur") == null) {
+	$('input:radio[name="agjencioniZgjedhur"]').filter('[value="Të Gjitha"]').attr('checked', true);
+	localStorage.setItem("agjencioniZgjedhur", "Të Gjitha");
+	agjencioniZgjedhur = "Të Gjitha";
+	}
+	else
+	{
+	agjencioniZgjedhur = localStorage.getItem("agjencioniZgjedhur");
+	$('input:radio[name="agjencioniZgjedhur"]').filter('[value="'+agjencioniZgjedhur+'"]').attr('checked', true);
+	}	
+	
+	document.getElementById('agjencioniZgjedhur').innerHTML = agjencioniZgjedhur;
+	
+	$('#forma input').on('change', function() {
+   var agjencia = $('input[name=agjencioniZgjedhur]:checked', '#forma').val(); 
+	localStorage.setItem("agjencioniZgjedhur", agjencia);
+	agjencioniZgjedhur = agjencia;
+	document.getElementById('agjencioniZgjedhur').innerHTML = agjencioniZgjedhur;
+	});
 
     var hours = date.getHours();
     var minutes = date.getMinutes();
