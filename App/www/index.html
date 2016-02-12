@@ -119,8 +119,6 @@
     </div>
 </div>
 
-
-
 <div data-role="page" id="OrariAll">
     <div data-role="header" style="padding-top: 20px;">
         <p align="center">LuckyBuss</p>
@@ -147,8 +145,6 @@
 
 </div>
 
-
-
 <div data-role="page" id="OrariIDO">
     <div data-role="header" style="padding-top: 20px;">
         <p align="center">Ido Tours</p>
@@ -160,8 +156,8 @@
         <table data-role="table" data-mode="" class="ui-shadow table-stripe ui-responsive" id="tableIDOorari">
             <thead>
             <tr>
-                <th style="text-align: left;">Nisja nga Gostivari</th>
-                <th style="text-align: right;">Nisja nga Tetova</th>
+                <th style="text-align: center;">Nisja nga Gostivari</th>
+                <th style="text-align: center;">Nisja nga Tetova</th>
             </tr>
             </thead>
             <tbody id="tableIDO">
@@ -197,8 +193,8 @@
         <table data-role="table" data-mode="" class="ui-shadow table-stripe ui-responsive" id="tableNASIRorari">
             <thead>
             <tr>
-                <th style="text-align: left;">Nisja nga Gostivari</th>
-                <th style="text-align: right;">Nisja nga Tetova</th>
+                <th style="text-align: center;">Nisja nga Gostivari</th>
+                <th style="text-align: center;">Nisja nga Tetova</th>
             </tr>
             </thead>
             <tbody id="tableNASIR">
@@ -222,7 +218,6 @@
     </div>
 </div>
 
-
 <div data-role="page" id="OrariEURO">
     <div data-role="header" style="padding-top: 20px;">
         <p align="center">Euro Tours</p>
@@ -234,8 +229,8 @@
         <table data-role="table" data-mode="" class="ui-shadow table-stripe ui-responsive" id="tableEUROorari">
             <thead>
             <tr>
-                <th style="text-align: left;">Nisja nga Gostivari</th>
-                <th style="text-align: right;">Nisja nga Tetova</th>
+                <th style="text-align: center;">Nisja nga Gostivari</th>
+                <th style="text-align: center;">Nisja nga Tetova</th>
             </tr>
             </thead>
             <tbody id="tableEURO">
@@ -280,6 +275,15 @@
 
             </fieldset>
         </form>
+
+        <div class="ui-field-contain" id="theme-selector">
+            <fieldset data-role="controlgroup" data-type="horizontal">
+                <legend>Tema:</legend>
+                <label for="a">A</label>
+                <input type="radio" name="theme" id="a" checked>
+                <label for="b">B</label>
+                <input type="radio" name="theme" id="b">
+            </fieldset>
     </div>
 
 
@@ -539,6 +543,9 @@
 
     });
 
+
 </script>
+
+
 </body>
 </html>
