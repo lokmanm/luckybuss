@@ -315,10 +315,34 @@
 
     var agjencioniZgjedhur;
 	var tema;
-    var date = new Date();
+	
+	
+	//ndryshimi i ores nga 9 ne 09 
+	Date.prototype.getHoursTwoDigits = function()
+{
+    var retval = this.getHours();
+    if (retval < 10)
+    {
+        return ("0" + retval.toString());
+    }
+    else
+    {
+        return retval.toString();
+    }
+}
+	var date = new Date();
+	var hours = date.getHoursTwoDigits();
+    var minutes = date.getMinutes();
+    var time = hours + ":" + minutes;
+    //var times = "02:30";
+	var today = new Date();
+	var eDiell = today.getDay();
+	
+    var existsCity;
 
     var orari = {"oraret":{"Ido Tours":{"Gostivar":{"destinacioni":"Tetovë","orari":["06:20","07:10","08:10","09:40","11:10","12:45","13:20","14:30","15:45","17:10","19:00","20:25"]},"Tetovë":{"destinacioni":"Gostivar","orari":["05:45","06:20","07:25","08:50","10:25","11:55","12:30","13:45","15:10","16:20","17:55","19:40"]}},"Nasir Tours":{"Gostivar":{"destinacioni":"Tetovë","orari":["07:20","08:20","08:50","09:20","10:30","10:50","11:50","12:20","13:40","15:20","16:50","18:20"]},"Tetovë":{"destinacioni":"Gostivar","orari":["07:50","09:00","10:10","11:00","11:40","12:40","13:10","14:30","15:25","16:10","17:30","19:20"]}},"Euro Tours":{"Gostivar":{"destinacioni":"Tetovë","orari":["05:15","06:35","07:30","08:30","09:00","10:00","11:30","13:00","14:45","16:00","17:30","19:15"]},"Tetovë":{"destinacioni":"Gostivar","orari":["06:00","07:40","08:10","09:10","09:40","10:40","12:10","14:00","15:30","16:40","18:10","20:00"]}}}};
 
+	//local storage per agjencionin e zgjedhur
 	if (localStorage.getItem("agjencioniZgjedhur") == null) {
 	$('input:radio[name="agjencioniZgjedhur"]').filter('[value="Të Gjitha"]').attr('checked', true);
 	localStorage.setItem("agjencioniZgjedhur", "Të Gjitha");
@@ -339,7 +363,7 @@
 	document.getElementById('agjencioniZgjedhur').innerHTML = agjencioniZgjedhur;
 	});
 	
-	
+	//local storage per temen e zgjedhur
 	if (localStorage.getItem("tema") == null) {
 	$('input:radio[name="theme"]').filter('[value="a"]').attr('checked', true);
 	localStorage.setItem("tema", "a");
@@ -356,19 +380,12 @@
 	localStorage.setItem("tema", temas);
 	tema = temas;
 	});
-
-    var hours = date.getHours();
-    var minutes = date.getMinutes();
-    var time = hours + ":" + minutes;
-    //var times = "02:30";
-
-    var existsCity;
-    var existsTE;
-    var existsAll;
-
+	
+	
+   //kalkulimi i kohes se ngelur per autobusin e ardhshem
     function calculateTime(a, b)
     {
-
+		
         var startTimeArray = a.split(":");
         var startInputHrs = parseInt(startTimeArray[0]);
         var startInputMins = parseInt(startTimeArray[1]);
@@ -393,12 +410,12 @@
 
         var autobusa = 0;
         var orariFull = orari["oraret"][agjencioni][vendi]["orari"];
-
-        for (var i = orariFull.length; i > 0; i--)
+		
+		if (eDiell != 0) {
+        for (var i = orariFull.length-1; i > 0; i--)
         {
-
-            if (time < orariFull[i])
-            {
+            if (time < orariFull[i]) 
+			{
                 var row = table.insertRow(orariFull[i]);
                 var cell1 = row.insertCell(0);
                 var cell2 = row.insertCell(1);
@@ -414,8 +431,8 @@
                 existsCity = true;
                 autobusa++;
             }
-
         }
+		}
         if (autobusa == 0)
         {
             var row = table.insertRow(1);
@@ -468,8 +485,13 @@
         var agjencioni = agjencioniZgjedhur;
         var vendi = "Gostivar";
 
+		if (agjencioni == "Të Gjitha"){
+		
+		}
+		else {
         kontrolloOraret (agjencioni,vendi, table, existsCity);
-
+		}
+		
         $("#tableGostivari").trigger("create");
         $("#tableGostivari").table("refresh");
         existsCity = false;
