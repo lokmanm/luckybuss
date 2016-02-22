@@ -9,17 +9,18 @@
     <link rel="stylesheet" href="css/luckytheme.css" />
     <link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <title>LuckyBuss App</title>
 </head>
 <body>
-<div data-role="page" id="home">
+<div data-role="page" id="home" >
     <div data-role="header" style="padding-top: 20px;">
         <p align="center">LuckyBuss</p>
     </div>
 
-    <div data-role="content">
+    <div data-role="content" id="cnt1">
 
         <h3 style="text-align:center;">Zgjidhni destinacionin tuaj?</h3>
         <a href="#Gostivar" data-transition="slide" class="ui-btn">Gostivar</a>
@@ -308,10 +309,14 @@
 
 <!-- <script type="text/javascript" src="cordova.js"></script> -->
 <script type="text/javascript" src="js/index.js"></script>
+
 <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script> -->
 <script type="text/javascript">
 
     app.initialize();
+
+
+
 
     var agjencioniZgjedhur;
 	var tema;

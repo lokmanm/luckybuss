@@ -255,6 +255,8 @@ html .ui-panel-page-container-a {
 	color: #ffffff /*{a-body-color}*/;
 	text-shadow: 0 /*{a-body-shadow-x}*/ 0px /*{a-body-shadow-y}*/ 0 /*{a-body-shadow-radius}*/ #f3f3f3 /*{a-body-shadow-color}*/;
 }
+
+
 .ui-body-a {
 	border-width: 1px;
 	border-style: solid;
