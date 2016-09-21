@@ -12,6 +12,7 @@
 
     <script src="js/jquery-1.11.1.min.js"></script>
     <script src="js/jquery.mobile-1.4.5.js"></script>
+	<script src="js/contact.js"></script>
 <!--	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>  -->
     
 	<title>LuckyBuss App</title>
@@ -38,6 +39,7 @@
                 <li><a href="#Settings" data-icon="gear" data-transition="slide">Preferencat</a></li>
                 <li><a href="#home" data-icon="grid" data-transition="fade">Ballina</a></li>
                 <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
+				<li><a href="#Contact" data-icon="info" data-transition="fade">Info</a></li>
             </ul>
         </div>
     </div>
@@ -78,6 +80,7 @@
                 <li><a href="#Settings" data-icon="gear" data-transition="slide">Preferencat</a></li>
                 <li><a href="#home" data-icon="grid" data-transition="fade">Ballina</a></li>
                 <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
+				<li><a href="#Contact" data-icon="info" data-transition="fade">Info</a></li>
 
             </ul>
         </div>
@@ -116,6 +119,7 @@
                 <li><a href="#Settings" data-icon="gear" data-transition="slide">Preferencat</a></li>
                 <li><a href="#home" data-icon="grid" data-transition="fade">Ballina</a></li>
                 <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
+				<li><a href="#Contact" data-icon="info" data-transition="fade">Info</a></li>
 
             </ul>
         </div>
@@ -142,6 +146,7 @@
                 <li><a href="#Settings" data-icon="gear" data-transition="slide">Preferencat</a></li>
                 <li><a href="#home" data-icon="grid" data-transition="fade">Ballina</a></li>
                 <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
+				<li><a href="#Contact" data-icon="info" data-transition="fade">Info</a></li>
             </ul>
         </div>
     </div>
@@ -178,6 +183,7 @@
                 <li><a href="#Settings" data-icon="gear" data-transition="slide">Preferencat</a></li>
                 <li><a href="#home" data-icon="grid" data-transition="fade">Ballina</a></li>
                 <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
+				<li><a href="#Contact" data-icon="info" data-transition="fade">Info</a></li>
 
             </ul>
         </div>
@@ -215,6 +221,7 @@
                 <li><a href="#Settings" data-icon="gear" data-transition="slide">Preferencat</a></li>
                 <li><a href="#home" data-icon="grid" data-transition="fade">Ballina</a></li>
                 <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
+				<li><a href="#Contact" data-icon="info" data-transition="fade">Info</a></li>
 
             </ul>
         </div>
@@ -251,6 +258,7 @@
                 <li><a href="#Settings" data-icon="gear" data-transition="slide">Preferencat</a></li>
                 <li><a href="#home" data-icon="grid" data-transition="fade">Ballina</a></li>
                 <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
+				<li><a href="#Contact" data-icon="info" data-transition="fade">Info</a></li>
 
             </ul>
         </div>
@@ -279,16 +287,53 @@
             </fieldset>
         </form>
 	</div>
-
-
-
-
+	
     <div data-role="footer" data-position="fixed" style="height:56px;">
         <div data-role="navbar" data-iconpos="top">
             <ul>
                 <li><a href="#Settings" data-icon="gear">Preferencat</a></li>
                 <li><a href="#home" data-icon="grid" data-transition="fade">Ballina</a></li>
                 <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
+				<li><a href="#Contact" data-icon="info" data-transition="fade">Info</a></li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div data-role="page" id="Contact">
+    <div data-role="header" style="padding-top: 20px;">
+        <p align="center">Info</p>
+        <a href="#home" data-transition="slide" class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-shadow" style="margin-top:25px;"></a>
+    </div>
+
+    <div data-role="content">
+        <div class="contact-thankyou" style="display: none;">
+			Mesazhi juaj u dërgua me sukses.
+		</div>
+		<div class="contact-form">
+			
+			<div data-role="fieldcontain" class="text-field">
+				<label for="email">Email Adresa juaj:</label>
+				<input type="email" name="email" value="" placeholder="" class="required" id="email"  />
+			</div>
+			
+			<div data-role="fieldcontain">
+				<label for="message">Mesazhi:</label>
+				<textarea name="message" id="message" placeholder="" class="required"></textarea>
+			</div>
+			
+			<div class="send"><a href="javascript:;" data-role="button" data-theme="a" data-iconpos="right" id="feedback">Dërgo</a></div>
+		</div>
+	</div>
+	
+    <div data-role="footer" data-position="fixed" style="height:56px;">
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#Settings" data-icon="gear">Preferencat</a></li>
+                <li><a href="#home" data-icon="grid" data-transition="fade">Ballina</a></li>
+                <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
+				<li><a href="#Contact" data-icon="info" data-transition="fade">Info</a></li>
 
             </ul>
         </div>
@@ -635,7 +680,6 @@
         existsCity = false;
 
     });
-
 
 </script>
 
