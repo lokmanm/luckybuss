@@ -133,7 +133,7 @@
         <h3 style="text-align:center;">Zgjidhni agjencionin</h3>
         <a href="#OrariIDO" data-transition="slide" data-role="button">Ido Tours</a>
         <a href="#OrariNASIR" data-transition="slide" data-role="button">Nasir Tours</a>
-        <a href="#OrariEURO" data-transition="slide" data-role="button">Euro Bus</a>
+        <a href="#OrariEURO" data-transition="slide" data-role="button">Euro Tourist</a>
     </div>
 
     <div data-role="footer" data-position="fixed" style="height:56px;">
@@ -223,7 +223,7 @@
 
 <div data-role="page" id="OrariEURO">
     <div data-role="header" style="padding-top: 20px;">
-        <p align="center">Euro Tours</p>
+        <p align="center">Euro Tourist</p>
         <a href="#OrariAll" data-transition="slide" class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-shadow" style="margin-top:25px"></a>
     </div>
 
@@ -272,24 +272,12 @@
                 <input type="radio" name="agjencioniZgjedhur" id="nasirtours" value="Nasir Tours">
                 <label for="nasirtours">Nasir Tours</label>
                 <input type="radio" name="agjencioniZgjedhur" id="eurotours" value="Euro Tours">
-                <label for="eurotours">Euro Tours</label>
+                <label for="eurotours">Euro Tourist</label>
                 <input type="radio" name="agjencioniZgjedhur" id="tegjitha" value="Të Gjitha">
                 <label for="tegjitha">Të Gjitha</label>
 
             </fieldset>
         </form>
-
-		<form id = "tema">
-        <div class="ui-field-contain" id="theme-selector">
-            <fieldset data-role="controlgroup" data-type="horizontal">
-                <legend>Tema:</legend>
-                <input type="radio" name="theme" id="a" value="a">
-				<label for="a">A</label>
-                <input type="radio" name="theme" id="b" value="b">
-				<label for="b">B</label>
-            </fieldset>
-    </div>
-	</form>
 	</div>
 
 
@@ -315,13 +303,10 @@
 <script type="text/javascript">
 
     app.initialize();
-
-
-
+	
 
     var agjencioniZgjedhur;
-	var tema;
-	
+    var agjencioniZgjedhur;
 	
 	// ndryshimi i ores nga 9 ne 09 
 	Date.prototype.getHoursTwoDigits = function()
@@ -370,25 +355,6 @@
 	agjencioniZgjedhur = agjencia;
 	document.getElementById('agjencioniZgjedhur').innerHTML = agjencioniZgjedhur;
 	});
-	
-	// local storage per temen e zgjedhur
-	if (localStorage.getItem("tema") == null) {
-	$('input:radio[name="theme"]').filter('[value="a"]').attr('checked', true);
-	localStorage.setItem("tema", "a");
-	tema = "a";
-	}
-	else
-	{
-	tema = localStorage.getItem("tema");
-	$('input:radio[name="theme"]').filter('[value="'+tema+'"]').attr('checked', true);
-	}	
-	
-	$('#tema input').on('change', function() {
-   var temas = $('input[name=theme]:checked', '#tema').val(); 
-	localStorage.setItem("tema", temas);
-	tema = temas;
-	});
-	
 	
    // kalkulimi i kohes se ngelur per autobusin e ardhshem
     function calculateTime(a, b)
