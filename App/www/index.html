@@ -31,6 +31,10 @@
         <br />
         <h5 style="text-align:center;">Agjencioni i zgjedhur:</h5>
         <h3 style="text-align:center;"><div id="agjencioniZgjedhur"></div></h3>
+		<br /><br />
+		<center>
+		<p>© Aplikacioni u mundësua nga <br /><a href="http://www.luckymedia.mk/">Lucky Media</a>.</p>
+		</center>
     </div>
 
     <div data-role="footer" data-position="fixed" style="height:56px;">
@@ -39,7 +43,6 @@
                 <li><a href="#Settings" data-icon="gear" data-transition="slide">Preferencat</a></li>
                 <li><a href="#home" data-icon="home" data-transition="fade">Ballina</a></li>
                 <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
-				<li><a href="#Contact" data-icon="info" data-transition="fade">Info</a></li>
             </ul>
         </div>
     </div>
@@ -80,8 +83,6 @@
                 <li><a href="#Settings" data-icon="gear" data-transition="slide">Preferencat</a></li>
                 <li><a href="#home" data-icon="home" data-transition="fade">Ballina</a></li>
                 <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
-				<li><a href="#Contact" data-icon="info" data-transition="fade">Info</a></li>
-
             </ul>
         </div>
     </div>
@@ -119,8 +120,6 @@
                 <li><a href="#Settings" data-icon="gear" data-transition="slide">Preferencat</a></li>
                 <li><a href="#home" data-icon="home" data-transition="fade">Ballina</a></li>
                 <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
-				<li><a href="#Contact" data-icon="info" data-transition="fade">Info</a></li>
-
             </ul>
         </div>
     </div>
@@ -146,7 +145,6 @@
                 <li><a href="#Settings" data-icon="gear" data-transition="slide">Preferencat</a></li>
                 <li><a href="#home" data-icon="home" data-transition="fade">Ballina</a></li>
                 <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
-				<li><a href="#Contact" data-icon="info" data-transition="fade">Info</a></li>
             </ul>
         </div>
     </div>
@@ -183,8 +181,6 @@
                 <li><a href="#Settings" data-icon="gear" data-transition="slide">Preferencat</a></li>
                 <li><a href="#home" data-icon="home" data-transition="fade">Ballina</a></li>
                 <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
-				<li><a href="#Contact" data-icon="info" data-transition="fade">Info</a></li>
-
             </ul>
         </div>
     </div>
@@ -221,8 +217,6 @@
                 <li><a href="#Settings" data-icon="gear" data-transition="slide">Preferencat</a></li>
                 <li><a href="#home" data-icon="home" data-transition="fade">Ballina</a></li>
                 <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
-				<li><a href="#Contact" data-icon="info" data-transition="fade">Info</a></li>
-
             </ul>
         </div>
     </div>
@@ -258,8 +252,6 @@
                 <li><a href="#Settings" data-icon="gear" data-transition="slide">Preferencat</a></li>
                 <li><a href="#home" data-icon="home" data-transition="fade">Ballina</a></li>
                 <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
-				<li><a href="#Contact" data-icon="info" data-transition="fade">Info</a></li>
-
             </ul>
         </div>
     </div>
@@ -300,58 +292,6 @@
         </div>
     </div>
 </div>
-
-<div data-role="page" id="Contact">
-    <div data-role="header" style="padding-top: 20px;">
-        <p align="center">Info</p>
-        <a href="#home" data-transition="slide" class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-shadow" style="margin-top:25px;"></a>
-    </div>
-
-	<div data-role="content">
-	<p>Aplikacioni u mundësua falas për ju nga <a href="http://www.luckymedia.mk/">Lucky Media</a>.</p>
-	<p>Na kontaktoni më poshtë për të shprehur kritikat apo këshillat e juaja.</p>
-		<form data-parsley-validate method="post" action="api/mail.php" data-ajax="false">
-		  <input type="email" id="mail" name="mail" value="" placeholder="Posta Elektronike" required/><br>
-		  <textarea style="height:100px;" id="bericht" name="bericht" placeholder="Mesazhi juaj..." required></textarea> <br />
-		  <input type="submit" value="Dergo" name="submit" class="btn">
-		 </form>
-	  </div>
-	
-    <div data-role="footer" data-position="fixed" style="height:56px;">
-        <div data-role="navbar" data-iconpos="top">
-            <ul>
-                <li><a href="#Settings" data-icon="gear">Preferencat</a></li>
-                <li><a href="#home" data-icon="home" data-transition="fade">Ballina</a></li>
-                <li><a href="#OrariAll" data-icon="star" data-transition="slide">Oraret</a></li>
-				<li><a href="#Contact" data-icon="info" data-transition="fade">Info</a></li>
-
-            </ul>
-        </div>
-    </div>
-</div>
-<div id="succes" data-role="page" data-theme="a">
-		<div data-role="header">
-			<h1>Sent Succesful</h1>
-			<a data-icon="home" href="#home" style="margin-top:2px;"></a>
-		</div>
-		<div data-role="content" data-theme="a">	
-		 <p>Mesazhi u dërgua me sukses!</p>
-		 </form>
-		</div>
-	</div>
-	<div id="error" data-role="page" data-theme="a">
-		<div data-role="header">
-			<h1>Error</h1>
-			<a data-icon="home" href="#home" style="margin-top:2px;"></a>
-		</div>
-		<div data-role="content" data-theme="a">	
-			<p>Mesazhi nuk u dërgua! <br></p>
-			<p>Provoni përsëri.</p>
-		</div>
-</div>
-
-
-
 
 <script type="text/javascript" src="js/index.js"></script>
 
